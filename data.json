@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-20 16:57 UTC",
+ "updated": "2026-11-20 17:18 UTC",
  "methods": [
   {
    "key": "ours",
@@ -676,10 +676,69 @@
      "where": "our pipeline"
     },
     "adgs": {
-     "status": "running",
-     "where": "gpuserver3 GPU 1",
-     "since": "14:32:05",
-     "progress": 88.0
+     "status": "done",
+     "m": {
+      "psnr": 22.129284928492016,
+      "ssim": 0.8081867198149363,
+      "lpips": 0.3200809583067894,
+      "views": 12,
+      "car_psnr": 15.099780301579017,
+      "car_ssim": 0.31292204807202023,
+      "car_lpips": 0.27177610993385315,
+      "car_views": 12,
+      "train_psnr": 36.28181700777984,
+      "train_views": 38,
+      "per_frame": [
+       {
+        "f": 4,
+        "psnr": 17.456
+       },
+       {
+        "f": 8,
+        "psnr": 21.589
+       },
+       {
+        "f": 12,
+        "psnr": 21.154
+       },
+       {
+        "f": 16,
+        "psnr": 19.686
+       },
+       {
+        "f": 20,
+        "psnr": 22.133
+       },
+       {
+        "f": 24,
+        "psnr": 22.712
+       },
+       {
+        "f": 28,
+        "psnr": 22.854
+       },
+       {
+        "f": 32,
+        "psnr": 24.254
+       },
+       {
+        "f": 36,
+        "psnr": 24.614
+       },
+       {
+        "f": 40,
+        "psnr": 23.74
+       },
+       {
+        "f": 44,
+        "psnr": 22.43
+       },
+       {
+        "f": 48,
+        "psnr": 22.928
+       }
+      ]
+     }
     },
     "idsplat": {
      "status": "done",
@@ -970,10 +1029,69 @@
      }
     },
     "adgs": {
-     "status": "running",
-     "where": "gpuserver2 GPU 1",
-     "since": "14:42:21",
-     "progress": 92.0
+     "status": "done",
+     "m": {
+      "psnr": 22.62051975067547,
+      "ssim": 0.7822843641042709,
+      "lpips": 0.26667890697717667,
+      "views": 12,
+      "car_psnr": 15.492804072282471,
+      "car_ssim": 0.378207645068566,
+      "car_lpips": 0.21983603512247404,
+      "car_views": 12,
+      "train_psnr": 35.219998057818515,
+      "train_views": 38,
+      "per_frame": [
+       {
+        "f": 4,
+        "psnr": 22.103
+       },
+       {
+        "f": 8,
+        "psnr": 21.633
+       },
+       {
+        "f": 12,
+        "psnr": 20.713
+       },
+       {
+        "f": 16,
+        "psnr": 22.158
+       },
+       {
+        "f": 20,
+        "psnr": 24.877
+       },
+       {
+        "f": 24,
+        "psnr": 23.354
+       },
+       {
+        "f": 28,
+        "psnr": 21.916
+       },
+       {
+        "f": 32,
+        "psnr": 21.882
+       },
+       {
+        "f": 36,
+        "psnr": 21.529
+       },
+       {
+        "f": 40,
+        "psnr": 22.352
+       },
+       {
+        "f": 44,
+        "psnr": 25.665
+       },
+       {
+        "f": 48,
+        "psnr": 23.264
+       }
+      ]
+     }
     },
     "idsplat": {
      "status": "done",
@@ -1057,8 +1175,10 @@
      "where": "our pipeline"
     },
     "adgs": {
-     "status": "queued",
-     "where": "gpuserver2 GPU 1"
+     "status": "running",
+     "where": "gpuserver2 GPU 1",
+     "since": "17:12:43",
+     "progress": null
     },
     "idsplat": {
      "status": "done",
@@ -1489,7 +1609,7 @@
      "status": "running",
      "where": "gpuserver2 GPU 2",
      "since": "16:53:09",
-     "progress": 4.73
+     "progress": 60.67
     }
    },
    "video": null,
