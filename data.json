@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-20 16:16 UTC",
+ "updated": "2026-11-20 16:36 UTC",
  "methods": [
   {
    "key": "ours",
@@ -679,7 +679,7 @@
      "status": "running",
      "where": "gpuserver3 GPU 1",
      "since": "14:32:05",
-     "progress": 57.0
+     "progress": 72.0
     },
     "idsplat": {
      "status": "done",
@@ -973,7 +973,7 @@
      "status": "running",
      "where": "gpuserver2 GPU 1",
      "since": "14:42:21",
-     "progress": 59.0
+     "progress": 75.0
     },
     "idsplat": {
      "status": "done",
@@ -1308,13 +1308,80 @@
      "where": "gpuserver2 GPU 1"
     },
     "idsplat": {
-     "status": "running",
-     "where": "gpuserver2 GPU 2",
-     "since": "15:47:12",
-     "progress": 83.87
+     "status": "done",
+     "m": {
+      "psnr": 27.204778283556205,
+      "ssim": 0.8323745514665332,
+      "lpips": 0.24093641872916902,
+      "views": 14,
+      "car_psnr": 21.32409593463887,
+      "car_ssim": 0.62477188876697,
+      "car_lpips": 0.048605285052742274,
+      "car_views": 14,
+      "train_psnr": 34.57128884964004,
+      "train_views": 44,
+      "per_frame": [
+       {
+        "f": 4,
+        "psnr": 28.513
+       },
+       {
+        "f": 8,
+        "psnr": 29.316
+       },
+       {
+        "f": 12,
+        "psnr": 30.098
+       },
+       {
+        "f": 16,
+        "psnr": 24.085
+       },
+       {
+        "f": 20,
+        "psnr": 29.136
+       },
+       {
+        "f": 24,
+        "psnr": 27.103
+       },
+       {
+        "f": 28,
+        "psnr": 25.384
+       },
+       {
+        "f": 32,
+        "psnr": 26.998
+       },
+       {
+        "f": 36,
+        "psnr": 25.921
+       },
+       {
+        "f": 40,
+        "psnr": 27.511
+       },
+       {
+        "f": 44,
+        "psnr": 26.092
+       },
+       {
+        "f": 48,
+        "psnr": 25.768
+       },
+       {
+        "f": 52,
+        "psnr": 28.293
+       },
+       {
+        "f": 56,
+        "psnr": 26.649
+       }
+      ]
+     }
     }
    },
-   "video": null,
+   "video": "media/b_nu0792.mp4",
    "thumb": "media/b_nu0792_thumb.jpg"
   },
   {
@@ -1334,8 +1401,10 @@
      "where": "gpuserver2 GPU 2"
     },
     "idsplat": {
-     "status": "queued",
-     "where": "gpuserver2 GPU 2"
+     "status": "running",
+     "where": "gpuserver2 GPU 2",
+     "since": "16:22:42",
+     "progress": 43.83
     }
    },
    "video": null,
