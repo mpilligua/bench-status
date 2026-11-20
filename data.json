@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-20 18:18 UTC",
+ "updated": "2026-11-20 18:39 UTC",
  "methods": [
   {
    "key": "ours",
@@ -886,7 +886,7 @@
      "status": "running",
      "where": "gpuserver3 GPU 1",
      "since": "17:17:29",
-     "progress": 39.0
+     "progress": 52.0
     },
     "idsplat": {
      "status": "done",
@@ -1180,7 +1180,7 @@
      "status": "running",
      "where": "gpuserver2 GPU 1",
      "since": "17:12:43",
-     "progress": 38.0
+     "progress": 51.0
     },
     "idsplat": {
      "status": "done",
@@ -1782,10 +1782,97 @@
      "where": "gpuserver3 GPU 1"
     },
     "idsplat": {
-     "status": "running",
-     "where": "gpuserver2 GPU 2",
-     "since": "17:31:12",
-     "progress": 98.4
+     "status": "done",
+     "m": {
+      "psnr": 23.271552570033183,
+      "ssim": 0.7201270461082458,
+      "lpips": 0.18128934737883115,
+      "views": 19,
+      "car_psnr": 18.301491149737007,
+      "car_ssim": 0.4626400047226956,
+      "car_lpips": 0.11550674018891234,
+      "car_views": 19,
+      "train_psnr": 27.86383592780713,
+      "train_views": 61,
+      "per_frame": [
+       {
+        "f": 4,
+        "psnr": 22.109
+       },
+       {
+        "f": 8,
+        "psnr": 23.427
+       },
+       {
+        "f": 12,
+        "psnr": 22.713
+       },
+       {
+        "f": 16,
+        "psnr": 22.058
+       },
+       {
+        "f": 20,
+        "psnr": 19.197
+       },
+       {
+        "f": 24,
+        "psnr": 21.517
+       },
+       {
+        "f": 28,
+        "psnr": 24.061
+       },
+       {
+        "f": 32,
+        "psnr": 24.297
+       },
+       {
+        "f": 36,
+        "psnr": 24.03
+       },
+       {
+        "f": 40,
+        "psnr": 22.491
+       },
+       {
+        "f": 44,
+        "psnr": 24.495
+       },
+       {
+        "f": 48,
+        "psnr": 23.893
+       },
+       {
+        "f": 52,
+        "psnr": 22.901
+       },
+       {
+        "f": 56,
+        "psnr": 22.923
+       },
+       {
+        "f": 60,
+        "psnr": 24.491
+       },
+       {
+        "f": 64,
+        "psnr": 23.947
+       },
+       {
+        "f": 68,
+        "psnr": 22.885
+       },
+       {
+        "f": 72,
+        "psnr": 24.265
+       },
+       {
+        "f": 76,
+        "psnr": 26.46
+       }
+      ]
+     }
     }
    },
    "video": "media/b_pa123.mp4",
@@ -1808,8 +1895,10 @@
      "where": "gpuserver2 GPU 1"
     },
     "idsplat": {
-     "status": "queued",
-     "where": "gpuserver2 GPU 2"
+     "status": "running",
+     "where": "gpuserver2 GPU 2",
+     "since": "18:20:41",
+     "progress": 37.17
     }
    },
    "video": null,
