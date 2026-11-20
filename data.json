@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-20 22:02 UTC",
+ "updated": "2026-11-20 22:22 UTC",
  "methods": [
   {
    "key": "ours",
@@ -1454,7 +1454,7 @@
      "status": "running",
      "where": "gpuserver3 GPU 1",
      "since": "19:53:53",
-     "progress": 30.0
+     "progress": 43.0
     },
     "idsplat": {
      "status": "done",
@@ -1546,10 +1546,77 @@
      "where": "our pipeline"
     },
     "adgs": {
-     "status": "running",
-     "where": "gpuserver2 GPU 1",
-     "since": "19:55:26",
-     "progress": 100.0
+     "status": "done",
+     "m": {
+      "psnr": 28.56901256368909,
+      "ssim": 0.8585102685860225,
+      "lpips": 0.20754894294909068,
+      "views": 14,
+      "car_psnr": 23.431858577529923,
+      "car_ssim": 0.7156146807329995,
+      "car_lpips": 0.03502130654773542,
+      "car_views": 14,
+      "train_psnr": 34.905930637702006,
+      "train_views": 44,
+      "per_frame": [
+       {
+        "f": 4,
+        "psnr": 28.144
+       },
+       {
+        "f": 8,
+        "psnr": 29.739
+       },
+       {
+        "f": 12,
+        "psnr": 28.478
+       },
+       {
+        "f": 16,
+        "psnr": 29.706
+       },
+       {
+        "f": 20,
+        "psnr": 29.744
+       },
+       {
+        "f": 24,
+        "psnr": 28.559
+       },
+       {
+        "f": 28,
+        "psnr": 28.031
+       },
+       {
+        "f": 32,
+        "psnr": 29.032
+       },
+       {
+        "f": 36,
+        "psnr": 28.303
+       },
+       {
+        "f": 40,
+        "psnr": 29.638
+       },
+       {
+        "f": 44,
+        "psnr": 28.629
+       },
+       {
+        "f": 48,
+        "psnr": 26.812
+       },
+       {
+        "f": 52,
+        "psnr": 28.027
+       },
+       {
+        "f": 56,
+        "psnr": 27.124
+       }
+      ]
+     }
     },
     "idsplat": {
      "status": "done",
@@ -2074,8 +2141,10 @@
      "where": "our pipeline"
     },
     "adgs": {
-     "status": "queued",
-     "where": "gpuserver2 GPU 1"
+     "status": "running",
+     "where": "gpuserver2 GPU 1",
+     "since": "22:05:47",
+     "progress": null
     },
     "idsplat": {
      "status": "done",
