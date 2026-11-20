@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-20 17:18 UTC",
+ "updated": "2026-11-20 17:38 UTC",
  "methods": [
   {
    "key": "ours",
@@ -883,8 +883,10 @@
      }
     },
     "adgs": {
-     "status": "queued",
-     "where": "gpuserver3 GPU 1"
+     "status": "running",
+     "where": "gpuserver3 GPU 1",
+     "since": "17:17:29",
+     "progress": 11.0
     },
     "idsplat": {
      "status": "done",
@@ -1178,7 +1180,7 @@
      "status": "running",
      "where": "gpuserver2 GPU 1",
      "since": "17:12:43",
-     "progress": null
+     "progress": 11.0
     },
     "idsplat": {
      "status": "done",
@@ -1606,13 +1608,72 @@
      "where": "gpuserver2 GPU 2"
     },
     "idsplat": {
-     "status": "running",
-     "where": "gpuserver2 GPU 2",
-     "since": "16:53:09",
-     "progress": 60.67
+     "status": "done",
+     "m": {
+      "psnr": 22.505988981202304,
+      "ssim": 0.7902169475952784,
+      "lpips": 0.18034827833374342,
+      "views": 12,
+      "car_psnr": 15.115771339617854,
+      "car_ssim": 0.5804794778426489,
+      "car_lpips": 0.13081395036230484,
+      "car_views": 12,
+      "train_psnr": 34.16688226622828,
+      "train_views": 38,
+      "per_frame": [
+       {
+        "f": 4,
+        "psnr": 21.614
+       },
+       {
+        "f": 8,
+        "psnr": 23.216
+       },
+       {
+        "f": 12,
+        "psnr": 22.708
+       },
+       {
+        "f": 16,
+        "psnr": 23.292
+       },
+       {
+        "f": 20,
+        "psnr": 22.941
+       },
+       {
+        "f": 24,
+        "psnr": 24.618
+       },
+       {
+        "f": 28,
+        "psnr": 23.254
+       },
+       {
+        "f": 32,
+        "psnr": 23.451
+       },
+       {
+        "f": 36,
+        "psnr": 21.653
+       },
+       {
+        "f": 40,
+        "psnr": 20.905
+       },
+       {
+        "f": 44,
+        "psnr": 17.245
+       },
+       {
+        "f": 48,
+        "psnr": 25.175
+       }
+      ]
+     }
     }
    },
-   "video": null,
+   "video": "media/b_ki0020.mp4",
    "thumb": "media/b_ki0020_thumb.jpg"
   },
   {
@@ -1721,8 +1782,10 @@
      "where": "gpuserver3 GPU 1"
     },
     "idsplat": {
-     "status": "queued",
-     "where": "gpuserver2 GPU 2"
+     "status": "running",
+     "where": "gpuserver2 GPU 2",
+     "since": "17:31:12",
+     "progress": 4.7
     }
    },
    "video": "media/b_pa123.mp4",
