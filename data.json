@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-20 15:35 UTC",
+ "updated": "2026-11-20 15:56 UTC",
  "methods": [
   {
    "key": "ours",
@@ -679,7 +679,7 @@
      "status": "running",
      "where": "gpuserver3 GPU 1",
      "since": "14:32:05",
-     "progress": 29.0
+     "progress": 43.0
     },
     "idsplat": {
      "status": "done",
@@ -973,7 +973,7 @@
      "status": "running",
      "where": "gpuserver2 GPU 1",
      "since": "14:42:21",
-     "progress": 27.0
+     "progress": 43.0
     },
     "idsplat": {
      "status": "done",
@@ -1215,10 +1215,77 @@
      "where": "gpuserver3 GPU 1"
     },
     "idsplat": {
-     "status": "running",
-     "where": "gpuserver2 GPU 2",
-     "since": "15:08:00",
-     "progress": 71.3
+     "status": "done",
+     "m": {
+      "psnr": 26.27444451665335,
+      "ssim": 0.8461837938853672,
+      "lpips": 0.17881520837545395,
+      "views": 14,
+      "car_psnr": 23.537424260690315,
+      "car_ssim": 0.7319276205130986,
+      "car_lpips": 0.09229762000696999,
+      "car_views": 14,
+      "train_psnr": 34.09714682548103,
+      "train_views": 43,
+      "per_frame": [
+       {
+        "f": 4,
+        "psnr": 29.796
+       },
+       {
+        "f": 8,
+        "psnr": 28.846
+       },
+       {
+        "f": 12,
+        "psnr": 27.775
+       },
+       {
+        "f": 16,
+        "psnr": 27.801
+       },
+       {
+        "f": 20,
+        "psnr": 22.706
+       },
+       {
+        "f": 24,
+        "psnr": 24.75
+       },
+       {
+        "f": 28,
+        "psnr": 28.116
+       },
+       {
+        "f": 32,
+        "psnr": 26.033
+       },
+       {
+        "f": 36,
+        "psnr": 26.208
+       },
+       {
+        "f": 40,
+        "psnr": 24.095
+       },
+       {
+        "f": 44,
+        "psnr": 24.6
+       },
+       {
+        "f": 48,
+        "psnr": 23.603
+       },
+       {
+        "f": 52,
+        "psnr": 25.368
+       },
+       {
+        "f": 56,
+        "psnr": 28.147
+       }
+      ]
+     }
     }
    },
    "video": "media/b_nu0286.mp4",
@@ -1241,8 +1308,10 @@
      "where": "gpuserver2 GPU 1"
     },
     "idsplat": {
-     "status": "queued",
-     "where": "gpuserver2 GPU 2"
+     "status": "running",
+     "where": "gpuserver2 GPU 2",
+     "since": "15:47:12",
+     "progress": 28.03
     }
    },
    "video": null,
