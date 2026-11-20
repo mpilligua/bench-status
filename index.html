@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Benchmark Status</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <h1>Benchmark status</h1>
+    <p class="sub">Dynamic driving-scene reconstruction · 14 scenes · <span id="updated"></span></p>
+  </div>
+</header>
+<main class="wrap">
+  <section id="summary" class="cards"></section>
+  <section class="panel">
+    <div class="bar">
+      <h2>Results per scene</h2>
+      <div class="seg" id="metric"></div>
+    </div>
+    <p class="hint">Click a scene to see the video, all metrics and per-frame PSNR.</p>
+    <div class="tablewrap"><table id="tbl"></table></div>
+    <p class="proto" id="protocol"></p>
+  </section>
+  <section class="panel">
+    <h2>Still missing</h2>
+    <div id="missing"></div>
+  </section>
+</main>
+<script src="app.js"></script>
+</body>
+</html>

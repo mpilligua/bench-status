@@ -1,0 +1,1194 @@
+{
+ "updated": "2026-11-20 14:26 UTC",
+ "methods": [
+  {
+   "key": "ours",
+   "name": "Ours",
+   "iters": "final"
+  },
+  {
+   "key": "adgs",
+   "name": "AD-GS",
+   "iters": "60k"
+  },
+  {
+   "key": "idsplat",
+   "name": "IDSplat",
+   "iters": "30k"
+  }
+ ],
+ "scenes": [
+  {
+   "id": "b_wy1738",
+   "dataset": "Waymo",
+   "speed": "fast",
+   "short": "1738",
+   "frames": 50,
+   "held": 12,
+   "cells": {
+    "ours": {
+     "status": "done",
+     "m": {
+      "psnr": 23.161946124049553,
+      "ssim": 0.8662536640961965,
+      "lpips": 0.3635876104235649,
+      "views": 12,
+      "car_psnr": 22.469756389586365,
+      "car_ssim": 0.7255988667408625,
+      "car_lpips": 0.08602221310138702,
+      "car_views": 12,
+      "train_psnr": 24.353539325935106,
+      "train_views": 38,
+      "per_frame": [
+       {
+        "f": 4,
+        "psnr": 24.457
+       },
+       {
+        "f": 8,
+        "psnr": 22.807
+       },
+       {
+        "f": 12,
+        "psnr": 22.969
+       },
+       {
+        "f": 16,
+        "psnr": 22.674
+       },
+       {
+        "f": 20,
+        "psnr": 22.897
+       },
+       {
+        "f": 24,
+        "psnr": 23.024
+       },
+       {
+        "f": 28,
+        "psnr": 22.22
+       },
+       {
+        "f": 32,
+        "psnr": 20.277
+       },
+       {
+        "f": 36,
+        "psnr": 22.456
+       },
+       {
+        "f": 40,
+        "psnr": 24.65
+       },
+       {
+        "f": 44,
+        "psnr": 25.139
+       },
+       {
+        "f": 48,
+        "psnr": 24.373
+       }
+      ]
+     }
+    },
+    "adgs": {
+     "status": "done",
+     "m": {
+      "psnr": 27.973027661900705,
+      "ssim": 0.8925573031107584,
+      "lpips": 0.20655352622270584,
+      "views": 12,
+      "car_psnr": 24.096689449287233,
+      "car_ssim": 0.7638199925422668,
+      "car_lpips": 0.05760397079090277,
+      "car_views": 12,
+      "train_psnr": 37.01850582278511,
+      "train_views": 38,
+      "per_frame": [
+       {
+        "f": 4,
+        "psnr": 25.974
+       },
+       {
+        "f": 8,
+        "psnr": 27.291
+       },
+       {
+        "f": 12,
+        "psnr": 26.091
+       },
+       {
+        "f": 16,
+        "psnr": 27.506
+       },
+       {
+        "f": 20,
+        "psnr": 27.126
+       },
+       {
+        "f": 24,
+        "psnr": 28.408
+       },
+       {
+        "f": 28,
+        "psnr": 27.504
+       },
+       {
+        "f": 32,
+        "psnr": 27.9
+       },
+       {
+        "f": 36,
+        "psnr": 29.09
+       },
+       {
+        "f": 40,
+        "psnr": 29.763
+       },
+       {
+        "f": 44,
+        "psnr": 29.755
+       },
+       {
+        "f": 48,
+        "psnr": 29.267
+       }
+      ]
+     }
+    },
+    "idsplat": {
+     "status": "failed",
+     "note": "Out of GPU memory (80 GB) in 4/4 attempts at steps 4k-6.3k: three object tracks grow to 1.0-1.6M Gaussians each with median scale up to 7 m; the 4M cap prunes all background Gaussians. Reported as a failure of the method."
+    }
+   },
+   "video": "media/b_wy1738.mp4",
+   "thumb": "media/b_wy1738_thumb.jpg"
+  },
+  {
+   "id": "b_wy1331",
+   "dataset": "Waymo",
+   "speed": "fast",
+   "short": "1331",
+   "frames": 50,
+   "held": 12,
+   "cells": {
+    "ours": {
+     "status": "todo",
+     "where": "our pipeline"
+    },
+    "adgs": {
+     "status": "running",
+     "where": "gpuserver3 GPU 1",
+     "since": "11:28:09",
+     "progress": 95.0
+    },
+    "idsplat": {
+     "status": "done",
+     "m": {
+      "psnr": 28.73702387406954,
+      "ssim": 0.8950603604316711,
+      "lpips": 0.2172484832505385,
+      "views": 12,
+      "car_psnr": 20.823144854988488,
+      "car_ssim": 0.7435383722186089,
+      "car_lpips": 0.05890566390007734,
+      "car_views": 12,
+      "train_psnr": 36.13464478653037,
+      "train_views": 38,
+      "per_frame": [
+       {
+        "f": 4,
+        "psnr": 25.327
+       },
+       {
+        "f": 8,
+        "psnr": 25.23
+       },
+       {
+        "f": 12,
+        "psnr": 27.856
+       },
+       {
+        "f": 16,
+        "psnr": 27.437
+       },
+       {
+        "f": 20,
+        "psnr": 27.889
+       },
+       {
+        "f": 24,
+        "psnr": 29.825
+       },
+       {
+        "f": 28,
+        "psnr": 31.631
+       },
+       {
+        "f": 32,
+        "psnr": 28.623
+       },
+       {
+        "f": 36,
+        "psnr": 32.367
+       },
+       {
+        "f": 40,
+        "psnr": 31.638
+       },
+       {
+        "f": 44,
+        "psnr": 27.583
+       },
+       {
+        "f": 48,
+        "psnr": 29.437
+       }
+      ]
+     }
+    }
+   },
+   "video": "media/b_wy1331.mp4",
+   "thumb": "media/b_wy1331_thumb.jpg"
+  },
+  {
+   "id": "b_wy6324",
+   "dataset": "Waymo",
+   "speed": "slow",
+   "short": "6324",
+   "frames": 50,
+   "held": 12,
+   "cells": {
+    "ours": {
+     "status": "done",
+     "m": {
+      "psnr": 24.88234607332464,
+      "ssim": 0.8277562707662582,
+      "lpips": 0.14915718014041582,
+      "views": 12,
+      "car_psnr": 17.508984403138285,
+      "car_ssim": 0.5441495105624199,
+      "car_lpips": 0.13161251352479061,
+      "car_views": 12,
+      "train_psnr": 27.802125649589314,
+      "train_views": 38,
+      "per_frame": [
+       {
+        "f": 4,
+        "psnr": 22.336
+       },
+       {
+        "f": 8,
+        "psnr": 23.705
+       },
+       {
+        "f": 12,
+        "psnr": 24.734
+       },
+       {
+        "f": 16,
+        "psnr": 25.394
+       },
+       {
+        "f": 20,
+        "psnr": 23.845
+       },
+       {
+        "f": 24,
+        "psnr": 25.432
+       },
+       {
+        "f": 28,
+        "psnr": 24.991
+       },
+       {
+        "f": 32,
+        "psnr": 24.761
+       },
+       {
+        "f": 36,
+        "psnr": 27.336
+       },
+       {
+        "f": 40,
+        "psnr": 26.038
+       },
+       {
+        "f": 44,
+        "psnr": 24.777
+       },
+       {
+        "f": 48,
+        "psnr": 25.24
+       }
+      ]
+     }
+    },
+    "adgs": {
+     "status": "done",
+     "m": {
+      "psnr": 27.648597282365674,
+      "ssim": 0.848214199145635,
+      "lpips": 0.15687356889247894,
+      "views": 12,
+      "car_psnr": 19.868272832782374,
+      "car_ssim": 0.6424731314182281,
+      "car_lpips": 0.07492654584348202,
+      "car_views": 12,
+      "train_psnr": 34.93147127239977,
+      "train_views": 38,
+      "per_frame": [
+       {
+        "f": 4,
+        "psnr": 26.357
+       },
+       {
+        "f": 8,
+        "psnr": 27.147
+       },
+       {
+        "f": 12,
+        "psnr": 28.434
+       },
+       {
+        "f": 16,
+        "psnr": 27.718
+       },
+       {
+        "f": 20,
+        "psnr": 27.278
+       },
+       {
+        "f": 24,
+        "psnr": 29.943
+       },
+       {
+        "f": 28,
+        "psnr": 28.676
+       },
+       {
+        "f": 32,
+        "psnr": 28.269
+       },
+       {
+        "f": 36,
+        "psnr": 27.782
+       },
+       {
+        "f": 40,
+        "psnr": 27.115
+       },
+       {
+        "f": 44,
+        "psnr": 26.074
+       },
+       {
+        "f": 48,
+        "psnr": 26.991
+       }
+      ]
+     }
+    },
+    "idsplat": {
+     "status": "done",
+     "m": {
+      "psnr": 27.221692820402264,
+      "ssim": 0.8441378474235535,
+      "lpips": 0.13118981570005417,
+      "views": 12,
+      "car_psnr": 20.026733994573796,
+      "car_ssim": 0.6741638282934824,
+      "car_lpips": 0.059244769625365734,
+      "car_views": 12,
+      "train_psnr": 29.547248528559773,
+      "train_views": 38,
+      "per_frame": [
+       {
+        "f": 4,
+        "psnr": 24.112
+       },
+       {
+        "f": 8,
+        "psnr": 26.303
+       },
+       {
+        "f": 12,
+        "psnr": 29.353
+       },
+       {
+        "f": 16,
+        "psnr": 29.305
+       },
+       {
+        "f": 20,
+        "psnr": 26.326
+       },
+       {
+        "f": 24,
+        "psnr": 28.754
+       },
+       {
+        "f": 28,
+        "psnr": 26.538
+       },
+       {
+        "f": 32,
+        "psnr": 27.148
+       },
+       {
+        "f": 36,
+        "psnr": 28.988
+       },
+       {
+        "f": 40,
+        "psnr": 27.22
+       },
+       {
+        "f": 44,
+        "psnr": 25.832
+       },
+       {
+        "f": 48,
+        "psnr": 26.782
+       }
+      ]
+     }
+    }
+   },
+   "video": "media/b_wy6324.mp4",
+   "thumb": "media/b_wy6324_thumb.jpg"
+  },
+  {
+   "id": "b_wy1357",
+   "dataset": "Waymo",
+   "speed": "slow",
+   "short": "1357",
+   "frames": 50,
+   "held": 12,
+   "cells": {
+    "ours": {
+     "status": "todo",
+     "where": "our pipeline"
+    },
+    "adgs": {
+     "status": "running",
+     "where": "gpuserver2 GPU 1",
+     "since": "11:45:26",
+     "progress": 92.0
+    },
+    "idsplat": {
+     "status": "done",
+     "m": {
+      "psnr": 24.075731308081114,
+      "ssim": 0.7919150739908218,
+      "lpips": 0.27505406613151234,
+      "views": 12,
+      "car_psnr": 14.776763517065339,
+      "car_ssim": 0.49797990048925084,
+      "car_lpips": 0.16744755518933138,
+      "car_views": 12,
+      "train_psnr": 31.923275768023387,
+      "train_views": 38,
+      "per_frame": [
+       {
+        "f": 4,
+        "psnr": 23.136
+       },
+       {
+        "f": 8,
+        "psnr": 21.734
+       },
+       {
+        "f": 12,
+        "psnr": 19.884
+       },
+       {
+        "f": 16,
+        "psnr": 18.463
+       },
+       {
+        "f": 20,
+        "psnr": 25.084
+       },
+       {
+        "f": 24,
+        "psnr": 24.308
+       },
+       {
+        "f": 28,
+        "psnr": 25.572
+       },
+       {
+        "f": 32,
+        "psnr": 24.153
+       },
+       {
+        "f": 36,
+        "psnr": 29.272
+       },
+       {
+        "f": 40,
+        "psnr": 25.931
+       },
+       {
+        "f": 44,
+        "psnr": 29.035
+       },
+       {
+        "f": 48,
+        "psnr": 22.336
+       }
+      ]
+     }
+    }
+   },
+   "video": "media/b_wy1357.mp4",
+   "thumb": "media/b_wy1357_thumb.jpg"
+  },
+  {
+   "id": "b_tsf644",
+   "dataset": "TruckScenes",
+   "speed": "fast",
+   "short": "f644",
+   "frames": 50,
+   "held": 12,
+   "cells": {
+    "ours": {
+     "status": "todo",
+     "where": "our pipeline"
+    },
+    "adgs": {
+     "status": "queued",
+     "where": "gpuserver3 GPU 1"
+    },
+    "idsplat": {
+     "status": "done",
+     "m": {
+      "psnr": 19.46750600126263,
+      "ssim": 0.8199814061323801,
+      "lpips": 0.4753614167372386,
+      "views": 12,
+      "car_psnr": 12.267125110516396,
+      "car_ssim": 0.2919648004074891,
+      "car_lpips": 0.3542460824052493,
+      "car_views": 12,
+      "train_psnr": 24.601014442220844,
+      "train_views": 38,
+      "per_frame": [
+       {
+        "f": 4,
+        "psnr": 15.164
+       },
+       {
+        "f": 8,
+        "psnr": 17.389
+       },
+       {
+        "f": 12,
+        "psnr": 16.851
+       },
+       {
+        "f": 16,
+        "psnr": 18.985
+       },
+       {
+        "f": 20,
+        "psnr": 19.525
+       },
+       {
+        "f": 24,
+        "psnr": 21.603
+       },
+       {
+        "f": 28,
+        "psnr": 20.294
+       },
+       {
+        "f": 32,
+        "psnr": 23.036
+       },
+       {
+        "f": 36,
+        "psnr": 22.266
+       },
+       {
+        "f": 40,
+        "psnr": 16.53
+       },
+       {
+        "f": 44,
+        "psnr": 19.389
+       },
+       {
+        "f": 48,
+        "psnr": 22.577
+       }
+      ]
+     }
+    }
+   },
+   "video": "media/b_tsf644.mp4",
+   "thumb": "media/b_tsf644_thumb.jpg"
+  },
+  {
+   "id": "b_tsbd14",
+   "dataset": "TruckScenes",
+   "speed": "fast",
+   "short": "bd14",
+   "frames": 50,
+   "held": 12,
+   "cells": {
+    "ours": {
+     "status": "done",
+     "m": {
+      "psnr": 21.614826651514097,
+      "ssim": 0.7960255493720373,
+      "lpips": 0.3098921701312065,
+      "views": 12,
+      "car_psnr": 14.856299607525564,
+      "car_ssim": 0.400954886029164,
+      "car_lpips": 0.10780589515343308,
+      "car_views": 12,
+      "train_psnr": 31.691546694780737,
+      "train_views": 38,
+      "per_frame": [
+       {
+        "f": 4,
+        "psnr": 21.576
+       },
+       {
+        "f": 8,
+        "psnr": 25.03
+       },
+       {
+        "f": 12,
+        "psnr": 23.399
+       },
+       {
+        "f": 16,
+        "psnr": 24.72
+       },
+       {
+        "f": 20,
+        "psnr": 22.191
+       },
+       {
+        "f": 24,
+        "psnr": 23.106
+       },
+       {
+        "f": 28,
+        "psnr": 23.064
+       },
+       {
+        "f": 32,
+        "psnr": 19.143
+       },
+       {
+        "f": 36,
+        "psnr": 19.034
+       },
+       {
+        "f": 40,
+        "psnr": 17.911
+       },
+       {
+        "f": 44,
+        "psnr": 17.738
+       },
+       {
+        "f": 48,
+        "psnr": 22.466
+       }
+      ]
+     }
+    },
+    "adgs": {
+     "status": "queued",
+     "where": "gpuserver3 GPU 1"
+    },
+    "idsplat": {
+     "status": "done",
+     "m": {
+      "psnr": 16.552529639707654,
+      "ssim": 0.7201362053553263,
+      "lpips": 0.5997755726178488,
+      "views": 12,
+      "car_psnr": 11.794843547046083,
+      "car_ssim": 0.18620509033401808,
+      "car_lpips": 0.18665609757105509,
+      "car_views": 12,
+      "train_psnr": 20.68564750144709,
+      "train_views": 38,
+      "per_frame": [
+       {
+        "f": 4,
+        "psnr": 15.616
+       },
+       {
+        "f": 8,
+        "psnr": 15.885
+       },
+       {
+        "f": 12,
+        "psnr": 17.342
+       },
+       {
+        "f": 16,
+        "psnr": 17.588
+       },
+       {
+        "f": 20,
+        "psnr": 16.444
+       },
+       {
+        "f": 24,
+        "psnr": 15.455
+       },
+       {
+        "f": 28,
+        "psnr": 14.96
+       },
+       {
+        "f": 32,
+        "psnr": 16.619
+       },
+       {
+        "f": 36,
+        "psnr": 19.465
+       },
+       {
+        "f": 40,
+        "psnr": 14.69
+       },
+       {
+        "f": 44,
+        "psnr": 16.799
+       },
+       {
+        "f": 48,
+        "psnr": 17.767
+       }
+      ]
+     }
+    }
+   },
+   "video": "media/b_tsbd14.mp4",
+   "thumb": "media/b_tsbd14_thumb.jpg"
+  },
+  {
+   "id": "b_ts3f54",
+   "dataset": "TruckScenes",
+   "speed": "slow",
+   "short": "3f54",
+   "frames": 50,
+   "held": 12,
+   "cells": {
+    "ours": {
+     "status": "done",
+     "m": {
+      "psnr": 21.617079827462874,
+      "ssim": 0.7994652440150579,
+      "lpips": 0.44049911697705585,
+      "views": 12,
+      "car_psnr": 16.143179755326315,
+      "car_ssim": 0.45671141395966214,
+      "car_lpips": 0.22935992727677026,
+      "car_views": 12,
+      "train_psnr": 23.29752893186517,
+      "train_views": 38,
+      "per_frame": [
+       {
+        "f": 4,
+        "psnr": 23.265
+       },
+       {
+        "f": 8,
+        "psnr": 21.804
+       },
+       {
+        "f": 12,
+        "psnr": 19.761
+       },
+       {
+        "f": 16,
+        "psnr": 18.888
+       },
+       {
+        "f": 20,
+        "psnr": 22.428
+       },
+       {
+        "f": 24,
+        "psnr": 23.221
+       },
+       {
+        "f": 28,
+        "psnr": 20.979
+       },
+       {
+        "f": 32,
+        "psnr": 21.093
+       },
+       {
+        "f": 36,
+        "psnr": 22.67
+       },
+       {
+        "f": 40,
+        "psnr": 19.736
+       },
+       {
+        "f": 44,
+        "psnr": 21.899
+       },
+       {
+        "f": 48,
+        "psnr": 23.662
+       }
+      ]
+     }
+    },
+    "adgs": {
+     "status": "queued",
+     "where": "gpuserver2 GPU 1"
+    },
+    "idsplat": {
+     "status": "running",
+     "where": "gpuserver2 GPU 2",
+     "since": "13:08:26",
+     "progress": 95.97
+    }
+   },
+   "video": "media/b_ts3f54.mp4",
+   "thumb": "media/b_ts3f54_thumb.jpg"
+  },
+  {
+   "id": "b_tsea5f",
+   "dataset": "TruckScenes",
+   "speed": "slow",
+   "short": "ea5f",
+   "frames": 50,
+   "held": 12,
+   "cells": {
+    "ours": {
+     "status": "todo",
+     "where": "our pipeline"
+    },
+    "adgs": {
+     "status": "queued",
+     "where": "gpuserver2 GPU 1"
+    },
+    "idsplat": {
+     "status": "queued",
+     "where": "gpuserver2 GPU 2"
+    }
+   },
+   "video": null,
+   "thumb": "media/b_tsea5f_thumb.jpg"
+  },
+  {
+   "id": "b_nu0286",
+   "dataset": "nuScenes",
+   "speed": "slow",
+   "short": "0286",
+   "frames": 57,
+   "held": 14,
+   "cells": {
+    "ours": {
+     "status": "done",
+     "m": {
+      "psnr": 24.89057462323209,
+      "ssim": 0.8344331937176841,
+      "lpips": 0.21740538626909256,
+      "views": 14,
+      "car_psnr": 21.967107685071223,
+      "car_ssim": 0.7097922733851841,
+      "car_lpips": 0.12141707379903112,
+      "car_views": 14,
+      "train_psnr": 29.29833252677343,
+      "train_views": 43,
+      "per_frame": [
+       {
+        "f": 4,
+        "psnr": 23.978
+       },
+       {
+        "f": 8,
+        "psnr": 23.391
+       },
+       {
+        "f": 12,
+        "psnr": 24.857
+       },
+       {
+        "f": 16,
+        "psnr": 24.259
+       },
+       {
+        "f": 20,
+        "psnr": 25.548
+       },
+       {
+        "f": 24,
+        "psnr": 23.587
+       },
+       {
+        "f": 28,
+        "psnr": 26.041
+       },
+       {
+        "f": 32,
+        "psnr": 26.093
+       },
+       {
+        "f": 36,
+        "psnr": 25.401
+       },
+       {
+        "f": 40,
+        "psnr": 24.068
+       },
+       {
+        "f": 44,
+        "psnr": 24.088
+       },
+       {
+        "f": 48,
+        "psnr": 24.251
+       },
+       {
+        "f": 52,
+        "psnr": 26.843
+       },
+       {
+        "f": 56,
+        "psnr": 26.063
+       }
+      ]
+     }
+    },
+    "adgs": {
+     "status": "queued",
+     "where": "gpuserver3 GPU 1"
+    },
+    "idsplat": {
+     "status": "queued",
+     "where": "gpuserver2 GPU 2"
+    }
+   },
+   "video": "media/b_nu0286.mp4",
+   "thumb": "media/b_nu0286_thumb.jpg"
+  },
+  {
+   "id": "b_nu0792",
+   "dataset": "nuScenes",
+   "speed": "slow",
+   "short": "0792",
+   "frames": 58,
+   "held": 14,
+   "cells": {
+    "ours": {
+     "status": "todo",
+     "where": "our pipeline"
+    },
+    "adgs": {
+     "status": "queued",
+     "where": "gpuserver2 GPU 1"
+    },
+    "idsplat": {
+     "status": "queued",
+     "where": "gpuserver2 GPU 2"
+    }
+   },
+   "video": null,
+   "thumb": "media/b_nu0792_thumb.jpg"
+  },
+  {
+   "id": "b_ki0004",
+   "dataset": "KITTI",
+   "speed": "slow",
+   "short": "0004",
+   "frames": 50,
+   "held": 12,
+   "cells": {
+    "ours": {
+     "status": "todo",
+     "where": "our pipeline"
+    },
+    "adgs": {
+     "status": "queued",
+     "where": "gpuserver2 GPU 2"
+    },
+    "idsplat": {
+     "status": "queued",
+     "where": "gpuserver2 GPU 2"
+    }
+   },
+   "video": null,
+   "thumb": "media/b_ki0004_thumb.jpg"
+  },
+  {
+   "id": "b_ki0020",
+   "dataset": "KITTI",
+   "speed": "slow",
+   "short": "0020",
+   "frames": 50,
+   "held": 12,
+   "cells": {
+    "ours": {
+     "status": "todo",
+     "where": "our pipeline"
+    },
+    "adgs": {
+     "status": "queued",
+     "where": "gpuserver2 GPU 2"
+    },
+    "idsplat": {
+     "status": "queued",
+     "where": "gpuserver2 GPU 2"
+    }
+   },
+   "video": null,
+   "thumb": "media/b_ki0020_thumb.jpg"
+  },
+  {
+   "id": "b_pa123",
+   "dataset": "PandaSet",
+   "speed": "slow",
+   "short": "123",
+   "frames": 80,
+   "held": 19,
+   "cells": {
+    "ours": {
+     "status": "done",
+     "m": {
+      "psnr": 24.46715510582354,
+      "ssim": 0.7622676209399575,
+      "lpips": 0.14481401247413536,
+      "views": 19,
+      "car_psnr": 21.556196302263846,
+      "car_ssim": 0.6893963405960485,
+      "car_lpips": 0.07399519944661542,
+      "car_views": 19,
+      "train_psnr": 26.723742285799396,
+      "train_views": 61,
+      "per_frame": [
+       {
+        "f": 4,
+        "psnr": 24.453
+       },
+       {
+        "f": 8,
+        "psnr": 25.453
+       },
+       {
+        "f": 12,
+        "psnr": 25.626
+       },
+       {
+        "f": 16,
+        "psnr": 24.237
+       },
+       {
+        "f": 20,
+        "psnr": 24.202
+       },
+       {
+        "f": 24,
+        "psnr": 25.088
+       },
+       {
+        "f": 28,
+        "psnr": 25.172
+       },
+       {
+        "f": 32,
+        "psnr": 24.52
+       },
+       {
+        "f": 36,
+        "psnr": 24.503
+       },
+       {
+        "f": 40,
+        "psnr": 23.426
+       },
+       {
+        "f": 44,
+        "psnr": 25.988
+       },
+       {
+        "f": 48,
+        "psnr": 24.866
+       },
+       {
+        "f": 52,
+        "psnr": 23.029
+       },
+       {
+        "f": 56,
+        "psnr": 19.379
+       },
+       {
+        "f": 60,
+        "psnr": 26.692
+       },
+       {
+        "f": 64,
+        "psnr": 24.342
+       },
+       {
+        "f": 68,
+        "psnr": 23.472
+       },
+       {
+        "f": 72,
+        "psnr": 24.699
+       },
+       {
+        "f": 76,
+        "psnr": 25.727
+       }
+      ]
+     }
+    },
+    "adgs": {
+     "status": "queued",
+     "where": "gpuserver3 GPU 1"
+    },
+    "idsplat": {
+     "status": "queued",
+     "where": "gpuserver2 GPU 2"
+    }
+   },
+   "video": "media/b_pa123.mp4",
+   "thumb": "media/b_pa123_thumb.jpg"
+  },
+  {
+   "id": "b_pa102",
+   "dataset": "PandaSet",
+   "speed": "slow",
+   "short": "102",
+   "frames": 80,
+   "held": 19,
+   "cells": {
+    "ours": {
+     "status": "todo",
+     "where": "our pipeline"
+    },
+    "adgs": {
+     "status": "queued",
+     "where": "gpuserver2 GPU 1"
+    },
+    "idsplat": {
+     "status": "queued",
+     "where": "gpuserver2 GPU 2"
+    }
+   },
+   "video": null,
+   "thumb": "media/b_pa102_thumb.jpg"
+  }
+ ],
+ "protocol": "Front camera, every 4th frame held out (frames 4, 8, ...). Full-image PSNR/SSIM/LPIPS(alex) averaged over held-out frames; vehicle-mask metrics inside our vehicle masks (pooled MSE). All methods use the same masks."
+}
