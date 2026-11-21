@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-21 01:45 UTC",
+ "updated": "2026-11-21 02:05 UTC",
  "methods": [
   {
    "key": "ours",
@@ -2159,7 +2159,7 @@
      "status": "running",
      "where": "gpuserver3 GPU 1",
      "since": "23:47:46",
-     "progress": 33.0
+     "progress": 44.0
     },
     "idsplat": {
      "status": "done",
