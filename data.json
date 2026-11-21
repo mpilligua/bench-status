@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-20 23:43 UTC",
+ "updated": "2026-11-21 00:03 UTC",
  "methods": [
   {
    "key": "ours",
@@ -1451,10 +1451,77 @@
      }
     },
     "adgs": {
-     "status": "running",
-     "where": "gpuserver3 GPU 1",
-     "since": "19:53:53",
-     "progress": 100.0
+     "status": "done",
+     "m": {
+      "psnr": 28.099854550506887,
+      "ssim": 0.8673627419131142,
+      "lpips": 0.1988764245595251,
+      "views": 14,
+      "car_psnr": 24.31211132158797,
+      "car_ssim": 0.7552598374230521,
+      "car_lpips": 0.09303003363311291,
+      "car_views": 14,
+      "train_psnr": 36.223262370694464,
+      "train_views": 43,
+      "per_frame": [
+       {
+        "f": 4,
+        "psnr": 29.128
+       },
+       {
+        "f": 8,
+        "psnr": 29.4
+       },
+       {
+        "f": 12,
+        "psnr": 26.92
+       },
+       {
+        "f": 16,
+        "psnr": 25.994
+       },
+       {
+        "f": 20,
+        "psnr": 25.362
+       },
+       {
+        "f": 24,
+        "psnr": 26.894
+       },
+       {
+        "f": 28,
+        "psnr": 32.3
+       },
+       {
+        "f": 32,
+        "psnr": 30.377
+       },
+       {
+        "f": 36,
+        "psnr": 30.33
+       },
+       {
+        "f": 40,
+        "psnr": 28.158
+       },
+       {
+        "f": 44,
+        "psnr": 27.131
+       },
+       {
+        "f": 48,
+        "psnr": 26.177
+       },
+       {
+        "f": 52,
+        "psnr": 28.531
+       },
+       {
+        "f": 56,
+        "psnr": 26.698
+       }
+      ]
+     }
     },
     "idsplat": {
      "status": "done",
@@ -2089,8 +2156,10 @@
      }
     },
     "adgs": {
-     "status": "queued",
-     "where": "gpuserver3 GPU 1"
+     "status": "running",
+     "where": "gpuserver3 GPU 1",
+     "since": "23:47:46",
+     "progress": null
     },
     "idsplat": {
      "status": "done",
@@ -2205,7 +2274,7 @@
      "status": "running",
      "where": "gpuserver2 GPU 1",
      "since": "22:05:47",
-     "progress": 38.0
+     "progress": 50.0
     },
     "idsplat": {
      "status": "done",
