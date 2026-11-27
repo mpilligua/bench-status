@@ -10,7 +10,7 @@
 </head>
 <body>
 <header><div class="wrap"><h1>Super-resolution before matching: PandaSet 123, vehicle 14</h1>
-<p class="sub"><a href="index.html">← Benchmark status</a> · <a href="live.html">Live trajectory</a> · a far vehicle (55-160 m, at most 70 px); test frames only (4, 12, 16, …, 76)</p></div></header>
+<p class="sub"><a href="index.html">← Benchmark status</a> · <a href="priors14.html">Motion priors</a> · <a href="live.html">Live trajectory</a> · a far vehicle (55-160 m, at most 70 px); test frames only (4, 12, 16, …, 76)</p></div></header>
 <main class="wrap">
 <section class="panel"><h2>Setup</h2>
 <p class="hint">A fixed 192×192 px window follows the vehicle in every frame where it is visible; it is upsampled x4 to 768×768 by each method; RoMa v2 (800 px, one direction, no high-res refinement) matches pairs of test frames 4, 8 and 12 frames apart (48 pairs). Matches are scored against the correspondence given by the GT 3D box (pixel ray hits the box in frame A, the point moves with the box to frame B). Clouds and trajectories use the same back-end for every input: DA3 depth of the test frames rescaled per frame to a smoothed distance (DA3 + ground contact), vehicle limited to ±2.5 m in depth, 4-DoF RANSAC per pair, joint pose graph.</p>

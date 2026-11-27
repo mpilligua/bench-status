@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Motion Priors</title>
+<link rel="stylesheet" href="style.css">
+<style>td.num,th.num{text-align:right;font-variant-numeric:tabular-nums} .im{width:100%;height:auto;display:block;border-radius:6px;margin:8px 0} .btn{display:inline-block;padding:6px 12px;border:1px solid var(--line);border-radius:6px;text-decoration:none}</style>
+</head>
+<body>
+<header><div class="wrap"><h1>Motion priors: PandaSet 123, vehicle 14</h1>
+<p class="sub"><a href="index.html">← Benchmark status</a> · <a href="live.html">Live trajectory</a> · <a href="sr14.html">Super-resolution test</a> · a far vehicle (55-160 m), 57 training frames, no super-resolution</p></div></header>
+<main class="wrap">
+<section class="panel"><h2>Model</h2>
+<ul class="small">
+<li><b>State per frame</b>: ground position (x, y), heading, speed ≥ 0 (never drives backwards).</li>
+<li><b>Kinematics (strong)</b>: the vehicle moves along its heading, so when it drives straight it does not turn; heading follows the direction of motion.</li>
+<li><b>Smoothness (physical values, not tuned on GT)</b>: yaw rate ~1°/frame, change of yaw rate ~0.2°/frame², small accelerations; it can go straight, slow down, stop or turn, but along smooth curves.</li>
+<li><b>Observations</b>: the ray through the mask centre (precise across the ray); the distance along it from DA3 + ground contact (noisy, 3%); relative yaw between frame pairs from RoMa v2 matches (noisy, ±5°); optionally the <b>apparent size</b>: the scale change of the vehicle between two frames from the RoMa v2 matches gives the distance ratio (1%).</li>
+<li>Solved jointly for all frames (robust least squares). Errors below remove one constant offset in the GT car frame, because the tracked point is the centre of the visible part of the vehicle, not the box centre.</li>
+</ul></section>
+<section class="panel"><h2>Result</h2>
+<div class="tablewrap"><table><thead><tr><th>Trajectory</th><th class=num>Error median (m)</th><th class=num>p90 (m)</th><th class=num>max (m)</th><th class=num>Heading error median / max (°)</th><th class=num>Heading change per frame std / max (GT 0.09° / 0.33°)</th></tr></thead><tbody><tr><td>Per-frame measurement (mask-centre ray + distance)</td><td class=num>3.07</td><td class=num>6.13</td><td class=num>10.82</td><td class=num>–</td><td class=num>–</td></tr><tr><td>Motion priors</td><td class=num>3.46</td><td class=num>5.35</td><td class=num>6.35</td><td class=num>1.01 / 2.95</td><td class=num>0.09° / 0.38°</td></tr><tr><td>Motion priors + apparent size</td><td class=num>1.54</td><td class=num>4.45</td><td class=num>4.95</td><td class=num>0.78 / 1.76</td><td class=num>0.14° / 0.32°</td></tr></tbody></table></div>
+<img class="im" src="sr14/prior14.png" alt="trajectories, distance to the camera and error per frame">
+<p><a class="btn" href="live.html">Open in the 3D viewer with the video (choose "motion priors" in Matches) →</a></p></section>
+</main></body></html>
