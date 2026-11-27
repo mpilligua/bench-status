@@ -41,8 +41,16 @@
   },
   {
    "id": "b_wy1357",
-   "name": "04_Waymo_slow_1357",
-   "missing": true
+   "frames": 50,
+   "video": "masks/b_wy1357_shadowv2.mp4",
+   "strip": "masks/b_wy1357_shadowv2_strip.jpg",
+   "vehicle": 2.49,
+   "ring": 0.82,
+   "shadow": 0.34,
+   "shadow_detected": 0.38,
+   "rejected_unmodelled": 0.2,
+   "rejected_static": 9.1,
+   "name": "04_Waymo_slow_1357"
   },
   {
    "id": "b_tsf644",
