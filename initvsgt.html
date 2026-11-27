@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Init vs GT</title>
+<link rel="stylesheet" href="style.css">
+<style>
+.vg{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(520px,100%),1fr));gap:8px;margin-top:8px}
+.vg figure{margin:0}
+.vg video{width:100%;height:auto;display:block;border-radius:4px;background:#000}
+.vg figcaption{font-size:12px;margin:2px 0 0}
+.vg figcaption b{font-weight:600}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
+.key{display:flex;flex-wrap:wrap;gap:16px;font-size:13px;margin:6px 0}
+.key i{display:inline-block;width:22px;height:0;border-top:2px solid #333;vertical-align:middle;margin-right:5px}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <h1>Fixed initialisation vs GT</h1>
+    <p class="sub"><a href="index.html">← Benchmark status</a> · <a href="trajectories.html">Trajectories</a> · <a href="masks.html">Masks</a> · trajectories before any training, training frames only</p>
+  </div>
+</header>
+<main class="wrap">
+  <section class="panel">
+    <div class="key">
+      <span><i></i>our box (fixed initialisation)</span>
+      <span><i style="border-top-style:dashed"></i>GT box</span>
+      <span>same colour + number = same vehicle · grey = no GT box matched</span>
+    </div>
+    <p class="hint">Left: camera. Right: top view around the ego camera (grey triangle, looking up), box footprints in the current frame and the trail of the last frames. Our box is the oriented box of the vehicle's registered DA3 points, so it only covers the visible part of the vehicle and is often shorter than the GT box.</p>
+    <div class="tablewrap"><table id="tab"></table></div>
+    <div class="vg" id="vg"></div>
+  </section>
+</main>
+<script>
+const el = (t, a = {}, ...kids) => { const e = document.createElement(t); for (const [k, v] of Object.entries(a)) k === "class" ? (e.className = v) : e.setAttribute(k, v); for (const k of kids) if (k != null) e.append(k); return e; };
+const f = (v, d = 0) => (v == null ? "–" : v.toFixed(d));
+(async () => {
+  const d = await (await fetch("traj.json?t=" + Date.now())).json();
+  const t = document.getElementById("tab");
+  t.append(el("thead", {}, el("tr", {}, ...["Scene", "Vehicles with GT", "Depth error % (p90)", "Image error (px)", "Yaw error ° (p90)"].map((h, i) => el("th", { class: i ? "num" : "" }, h)))));
+  const tb = el("tbody"), vg = document.getElementById("vg");
+  for (const [id, s] of Object.entries(d)) {
+    const x = s.stats.fix || {};
+    tb.append(el("tr", {}, el("td", {}, s.name), el("td", { class: "num" }, `${s.matched}/${s.objects}`), el("td", { class: "num" }, x.depth == null ? "–" : `${f(x.depth)} (${f(x.depth_p90)})`),
+      el("td", { class: "num" }, f(x.px)), el("td", { class: "num" }, x.yaw == null ? "–" : `${f(x.yaw, 1)} (${f(x.yaw_p90, 1)})`)));
+    vg.append(el("figure", {}, el("video", { src: `trajvid/${id}.mp4`, poster: `trajvid/${id}.jpg`, controls: "", muted: "", loop: "", playsinline: "", preload: "none" }),
+      el("figcaption", {}, el("b", {}, s.name), x.depth == null ? "" : `  ·  depth error ${f(x.depth)}%  ·  image ${f(x.px)} px  ·  yaw ${f(x.yaw, 1)}°`)));
+  }
+  t.append(tb);
+})();
+</script>
+</body>
+</html>
