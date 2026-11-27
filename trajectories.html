@@ -29,14 +29,14 @@ th.grp{text-align:center;border-bottom:none}
     <h2>How a trajectory is made</h2>
     <ol class="small">
       <li><b>Initialisation</b> (no training): per frame, DA3 3D points inside the vehicle mask; frames registered to each other with RANSAC on DVLT descriptors; gaps interpolated, frames outside the registered range extrapolated at constant velocity.</li>
-      <li><b>Fixed initialisation</b>: same, with the extrapolation bug fixed (the cloud centre was overwritten by the last frame's), a per-frame lateral correction so the projected cloud fits the mask, and planar motion: rotation only about the vertical, centre height on one smooth road slope.</li>
-      <li><b>Note</b>: the per-frame DA3 clouds keep points up to 50 m only, so vehicles farther away get their distance from a fallback.</li>
+      <li><b>New initialisation</b>: extrapolation bug fixed; per-frame lateral correction to fit the mask; planar motion (rotation only about the vertical, centre height on one smooth road slope); vehicle points straight from the dense DA3 depth inside the mask at any distance (the per-frame DA3 clouds stop at 50 m) with erosion proportional to the mask size; RANSAC thresholds proportional to distance; a remaining jump splits the registration instead of discarding it; vehicles that still fall back to per-frame depth are smoothed over time; a vehicle that drives straight (or is static) gets one constant heading.</li>
+      
       <li><b>After training</b>: the pose of every training frame is optimised together with the vehicle's 3D model, photometrically. Trained from the initialisation <i>before</i> the fix.</li>
     </ol>
     <div class="key">
       <span><i style="border-color:#6b6b6b;border-top-style:dashed"></i>GT box centre</span>
       <span><i style="border-color:#eb6834"></i>init (before fix)</span>
-      <span><i style="border-color:#1baf7a"></i>init (fixed + planar)</span>
+      <span><i style="border-color:#1baf7a"></i>init (new)</span>
       <span><i style="border-color:#2a78d6"></i>after training</span>
       <span><i style="border-color:#c9c9c9"></i>camera (ego)</span>
     </div>
