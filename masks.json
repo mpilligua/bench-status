@@ -1,0 +1,317 @@
+{
+ "dilation_px": 10,
+ "scenes": [
+  {
+   "id": "b_wy1738",
+   "name": "01_Waymo_fast_1738",
+   "frames": 50,
+   "video": "masks/b_wy1738.mp4",
+   "strip": "masks/b_wy1738_strip.jpg",
+   "variants": [
+    {
+     "key": "vehicle",
+     "label": "vehicle mask (current input)",
+     "px": 6.76,
+     "px_max": 11.9
+    },
+    {
+     "key": "dil10",
+     "label": "vehicle mask dilated 10 px",
+     "px": 8.37,
+     "px_max": 13.86
+    }
+   ]
+  },
+  {
+   "id": "b_wy1331",
+   "name": "02_Waymo_fast_1331",
+   "frames": 50,
+   "video": "masks/b_wy1331.mp4",
+   "strip": "masks/b_wy1331_strip.jpg",
+   "variants": [
+    {
+     "key": "vehicle",
+     "label": "vehicle mask (current input)",
+     "px": 5.19,
+     "px_max": 10.04
+    },
+    {
+     "key": "dil10",
+     "label": "vehicle mask dilated 10 px",
+     "px": 6.41,
+     "px_max": 11.77
+    }
+   ]
+  },
+  {
+   "id": "b_wy6324",
+   "name": "03_Waymo_slow_6324",
+   "frames": 50,
+   "video": "masks/b_wy6324.mp4",
+   "strip": "masks/b_wy6324_strip.jpg",
+   "variants": [
+    {
+     "key": "vehicle",
+     "label": "vehicle mask (current input)",
+     "px": 3.59,
+     "px_max": 6.45
+    },
+    {
+     "key": "dil10",
+     "label": "vehicle mask dilated 10 px",
+     "px": 4.69,
+     "px_max": 8.36
+    }
+   ]
+  },
+  {
+   "id": "b_wy1357",
+   "name": "04_Waymo_slow_1357",
+   "frames": 50,
+   "video": "masks/b_wy1357.mp4",
+   "strip": "masks/b_wy1357_strip.jpg",
+   "variants": [
+    {
+     "key": "vehicle",
+     "label": "vehicle mask (current input)",
+     "px": 2.49,
+     "px_max": 4.1
+    },
+    {
+     "key": "dil10",
+     "label": "vehicle mask dilated 10 px",
+     "px": 3.31,
+     "px_max": 5.02
+    }
+   ]
+  },
+  {
+   "id": "b_tsf644",
+   "name": "05_TruckScenes_fast_f644",
+   "frames": 50,
+   "video": "masks/b_tsf644.mp4",
+   "strip": "masks/b_tsf644_strip.jpg",
+   "variants": [
+    {
+     "key": "vehicle",
+     "label": "vehicle mask (current input)",
+     "px": 6.75,
+     "px_max": 30.56
+    },
+    {
+     "key": "dil10",
+     "label": "vehicle mask dilated 10 px",
+     "px": 7.93,
+     "px_max": 32.48
+    }
+   ]
+  },
+  {
+   "id": "b_tsbd14",
+   "name": "06_TruckScenes_fast_bd14",
+   "frames": 50,
+   "video": "masks/b_tsbd14.mp4",
+   "strip": "masks/b_tsbd14_strip.jpg",
+   "variants": [
+    {
+     "key": "vehicle",
+     "label": "vehicle mask (current input)",
+     "px": 1.21,
+     "px_max": 3.18
+    },
+    {
+     "key": "dil10",
+     "label": "vehicle mask dilated 10 px",
+     "px": 1.88,
+     "px_max": 4.31
+    }
+   ]
+  },
+  {
+   "id": "b_ts3f54",
+   "name": "07_TruckScenes_slow_3f54",
+   "frames": 50,
+   "video": "masks/b_ts3f54.mp4",
+   "strip": "masks/b_ts3f54_strip.jpg",
+   "variants": [
+    {
+     "key": "vehicle",
+     "label": "vehicle mask (current input)",
+     "px": 6.6,
+     "px_max": 17.3
+    },
+    {
+     "key": "dil10",
+     "label": "vehicle mask dilated 10 px",
+     "px": 7.96,
+     "px_max": 18.99
+    }
+   ]
+  },
+  {
+   "id": "b_tsea5f",
+   "name": "08_TruckScenes_slow_ea5f",
+   "frames": 50,
+   "video": "masks/b_tsea5f.mp4",
+   "strip": "masks/b_tsea5f_strip.jpg",
+   "variants": [
+    {
+     "key": "vehicle",
+     "label": "vehicle mask (current input)",
+     "px": 2.86,
+     "px_max": 9.91
+    },
+    {
+     "key": "dil10",
+     "label": "vehicle mask dilated 10 px",
+     "px": 3.94,
+     "px_max": 11.25
+    }
+   ]
+  },
+  {
+   "id": "b_nu0286",
+   "name": "09_nuScenes_slow_0286",
+   "frames": 57,
+   "video": "masks/b_nu0286.mp4",
+   "strip": "masks/b_nu0286_strip.jpg",
+   "variants": [
+    {
+     "key": "vehicle",
+     "label": "vehicle mask (current input)",
+     "px": 27.82,
+     "px_max": 34.25
+    },
+    {
+     "key": "dil10",
+     "label": "vehicle mask dilated 10 px",
+     "px": 31.05,
+     "px_max": 38.85
+    }
+   ]
+  },
+  {
+   "id": "b_nu0792",
+   "name": "10_nuScenes_slow_0792",
+   "frames": 58,
+   "video": "masks/b_nu0792.mp4",
+   "strip": "masks/b_nu0792_strip.jpg",
+   "variants": [
+    {
+     "key": "vehicle",
+     "label": "vehicle mask (current input)",
+     "px": 0.84,
+     "px_max": 1.68
+    },
+    {
+     "key": "dil10",
+     "label": "vehicle mask dilated 10 px",
+     "px": 1.54,
+     "px_max": 2.58
+    }
+   ]
+  },
+  {
+   "id": "b_ki0004",
+   "name": "11_KITTI_slow_0004",
+   "frames": 50,
+   "video": "masks/b_ki0004.mp4",
+   "strip": "masks/b_ki0004_strip.jpg",
+   "variants": [
+    {
+     "key": "vehicle",
+     "label": "vehicle mask (current input)",
+     "px": 5.64,
+     "px_max": 11.51
+    },
+    {
+     "key": "dil10",
+     "label": "vehicle mask dilated 10 px",
+     "px": 8.82,
+     "px_max": 16.17
+    }
+   ]
+  },
+  {
+   "id": "b_ki0020",
+   "name": "12_KITTI_slow_0020",
+   "frames": 50,
+   "video": "masks/b_ki0020.mp4",
+   "strip": "masks/b_ki0020_strip.jpg",
+   "variants": [
+    {
+     "key": "vehicle",
+     "label": "vehicle mask (current input)",
+     "px": 11.61,
+     "px_max": 20.96
+    },
+    {
+     "key": "dil10",
+     "label": "vehicle mask dilated 10 px",
+     "px": 14.85,
+     "px_max": 24.17
+    }
+   ]
+  },
+  {
+   "id": "b_pa123",
+   "name": "13_PandaSet_slow_123",
+   "frames": 80,
+   "video": "masks/b_pa123.mp4",
+   "strip": "masks/b_pa123_strip.jpg",
+   "variants": [
+    {
+     "key": "vehicle",
+     "label": "vehicle mask (current input)",
+     "px": 8.0,
+     "px_max": 15.97
+    },
+    {
+     "key": "dil10",
+     "label": "vehicle mask dilated 10 px",
+     "px": 9.83,
+     "px_max": 18.04
+    },
+    {
+     "key": "shadowT",
+     "label": "+ temporal shadow",
+     "px": 10.48,
+     "px_max": 19.29
+    },
+    {
+     "key": "shadowTS",
+     "label": "+ temporal + same-frame shadow",
+     "px": 10.77,
+     "px_max": 19.56
+    },
+    {
+     "key": "shadowTSC",
+     "label": "+ temporal + same-frame shadow, closed",
+     "px": 10.98,
+     "px_max": 19.56
+    }
+   ]
+  },
+  {
+   "id": "b_pa102",
+   "name": "14_PandaSet_slow_102",
+   "frames": 80,
+   "video": "masks/b_pa102.mp4",
+   "strip": "masks/b_pa102_strip.jpg",
+   "variants": [
+    {
+     "key": "vehicle",
+     "label": "vehicle mask (current input)",
+     "px": 6.69,
+     "px_max": 14.82
+    },
+    {
+     "key": "dil10",
+     "label": "vehicle mask dilated 10 px",
+     "px": 8.22,
+     "px_max": 16.71
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Training Masks</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <h1>Training masks</h1>
+    <p class="sub"><a href="index.html">← Benchmark status</a> · masks given to the models for background-only training</p>
+  </div>
+</header>
+<main class="wrap">
+  <section class="panel">
+    <h2>What is shown</h2>
+    <p class="hint">Pixels inside the mask are excluded from the photometric loss when training the static background.</p>
+    <div class="legend big">
+      <span><i class="dot" style="background:#e62828"></i>Vehicle mask, the current input to all models</span>
+      <span><i class="dot" style="background:#ffd200"></i>Extra pixels if the mask is dilated <b id="dil"></b> px</span>
+      <span><i class="dot" style="background:#00c8ff"></i>Extra shadow pixels (only built for PandaSet 123)</span>
+    </div>
+  </section>
+  <section class="panel">
+    <div class="bar">
+      <h2>Mask coverage per scene</h2>
+    </div>
+    <p class="hint">Mean share of image pixels inside the mask over all frames. Click a scene to see the video.</p>
+    <div class="tablewrap"><table id="cov"></table></div>
+  </section>
+  <section id="scenes"></section>
+</main>
+<script src="masks.js"></script>
+</body>
+</html>
