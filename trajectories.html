@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Vehicle Trajectories</title>
+<link rel="stylesheet" href="style.css">
+<style>
+.tgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(340px,100%),1fr));gap:8px;margin-top:8px}
+.tgrid figure{margin:0;border:1px solid var(--line);border-radius:6px;padding:6px;background:var(--card)}
+.tgrid img{width:100%;height:auto;display:block}
+.tgrid figcaption{font-size:12px;font-weight:600;margin:0 0 4px}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
+th.grp{text-align:center;border-bottom:none}
+.key{display:flex;flex-wrap:wrap;gap:14px;font-size:13px;margin:6px 0}
+.key i{display:inline-block;width:18px;height:0;border-top:2px solid;vertical-align:middle;margin-right:5px}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <h1>Vehicle trajectories</h1>
+    <p class="sub"><a href="index.html">← Benchmark status</a> · <a href="masks.html">Masks</a> · initialisation vs after training vs GT 3D boxes</p>
+  </div>
+</header>
+<main class="wrap">
+  <section class="panel">
+    <h2>How a trajectory is made</h2>
+    <ol class="small">
+      <li><b>Initialisation</b> (no training): per frame, DA3 3D points inside the vehicle mask; frames registered to each other with RANSAC on DVLT descriptors; gaps interpolated, frames outside the registered range extrapolated at constant velocity.</li>
+      <li><b>Fixed initialisation</b>: same, with the extrapolation bug fixed (the cloud centre was overwritten by the last frame's) and a per-frame lateral correction so the projected cloud fits the mask.</li>
+      <li><b>Note</b>: the per-frame DA3 clouds keep points up to 50 m only, so vehicles farther away get their distance from a fallback.</li>
+      <li><b>After training</b>: the pose of every training frame is optimised together with the vehicle's 3D model, photometrically. Trained from the initialisation <i>before</i> the fix.</li>
+    </ol>
+    <div class="key">
+      <span><i style="border-color:#6b6b6b;border-top-style:dashed"></i>GT box centre</span>
+      <span><i style="border-color:#eb6834"></i>init (before fix)</span>
+      <span><i style="border-color:#1baf7a"></i>init (fixed)</span>
+      <span><i style="border-color:#2a78d6"></i>after training</span>
+      <span><i style="border-color:#c9c9c9"></i>camera (ego)</span>
+    </div>
+    <p class="hint">Errors on training frames, vehicles matched to a GT box. <b>Centre</b>: distance to the GT box centre (our centre is the middle of the visible part of the car, so ~0.5–1 m is expected even when the trajectory is right). <b>Depth</b>: error of our distance to the camera along the GT ray, in % of the GT distance. <b>Image</b>: distance between our centre and the GT centre once projected into the image. <b>Yaw</b>: heading error with each vehicle's constant rotation removed. Medians; p90 in brackets.</p>
+    <div class="tablewrap"><table id="tab"></table></div>
+  </section>
+  <section class="panel">
+    <h2>Per scene</h2>
+    <p class="hint">Per scene: vehicle centres relative to the ego camera (top view, axes not to the same scale), the median distance to the GT centre per frame, and the distance to GT per vehicle (up to 12 vehicles). Training frames only. Click an image to open it full size.</p>
+    <div class="tgrid" id="grid"></div>
+  </section>
+</main>
+<script>
+const el = (t, a = {}, ...kids) => { const e = document.createElement(t); for (const [k, v] of Object.entries(a)) k === "class" ? (e.className = v) : e.setAttribute(k, v); for (const k of kids) if (k != null) e.append(k); return e; };
+const f = (v, d = 2) => (v == null ? "–" : v.toFixed(d));
+(async () => {
+  const d = await (await fetch("traj.json?t=" + Date.now())).json();
+  const M = [["init", "Init (before fix)"], ["fix", "Init (fixed)"], ["trained", "After training"]];
+  const t = document.getElementById("tab");
+  const h1 = el("tr", {}, el("th", { rowspan: "2" }, "Scene"), el("th", { rowspan: "2", class: "num" }, "Matched"));
+  for (const [, l] of M) h1.append(el("th", { colspan: "4", class: "grp" }, l));
+  const h2 = el("tr"); for (const _ of M) for (const x of ["Centre (m)", "Depth (%)", "Image (px)", "Yaw (°)"]) h2.append(el("th", { class: "num" }, x));
+  t.append(el("thead", {}, h1, h2));
+  const tb = el("tbody");
+  for (const [id, s] of Object.entries(d)) {
+    const r = el("tr", {}, el("td", {}, s.name), el("td", { class: "num" }, `${s.matched}/${s.objects}`));
+    for (const [k] of M) {
+      const x = s.stats[k] || {};
+      r.append(el("td", { class: "num" }, f(x.raw)), el("td", { class: "num" }, x.depth == null ? "–" : `${f(x.depth, 0)} (${f(x.depth_p90, 0)})`),
+               el("td", { class: "num" }, f(x.px, 0)), el("td", { class: "num" }, x.yaw == null ? "–" : `${f(x.yaw, 1)} (${f(x.yaw_p90, 1)})`));
+    }
+    tb.append(r);
+  }
+  t.append(tb);
+  const g = document.getElementById("grid");
+  for (const [id, s] of Object.entries(d)) {
+    g.append(el("figure", {}, el("figcaption", {}, s.name),
+      el("a", { href: s.top, target: "_blank" }, el("img", { src: s.top, loading: "lazy", alt: `${s.name} top view` })),
+      el("a", { href: s.err, target: "_blank" }, el("img", { src: s.err, loading: "lazy", alt: `${s.name} error per frame` })),
+      s.obj ? el("a", { href: s.obj, target: "_blank" }, el("img", { src: s.obj, loading: "lazy", alt: `${s.name} error per vehicle` })) : null));
+  }
+})();
+</script>
+</body>
+</html>
