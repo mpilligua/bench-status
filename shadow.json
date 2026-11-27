@@ -111,8 +111,16 @@
   },
   {
    "id": "b_nu0792",
-   "name": "10_nuScenes_slow_0792",
-   "missing": true
+   "frames": 58,
+   "video": "masks/b_nu0792_shadowv2.mp4",
+   "strip": "masks/b_nu0792_shadowv2_strip.jpg",
+   "vehicle": 0.84,
+   "ring": 0.7,
+   "shadow": 0.05,
+   "shadow_detected": 0.06,
+   "rejected_unmodelled": 6.2,
+   "rejected_static": 10.6,
+   "name": "10_nuScenes_slow_0792"
   },
   {
    "id": "b_ki0004",
