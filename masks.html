@@ -21,7 +21,7 @@
     <div class="legend big">
       <span><i class="dot" style="background:#e62828"></i>Vehicle mask, the current input to all models</span>
       <span><i class="dot" style="background:#ffd200"></i>Extra pixels if the mask is dilated <b id="dil"></b> px</span>
-      <span><i class="dot" style="background:#00c8ff"></i>Extra shadow pixels (only built for PandaSet 123, <a href="#shadow">see the shadow variants</a>)</span>
+      <span><i class="dot" style="background:#00c8ff"></i>Shadow of a modelled vehicle (<a href="#shadow">see the shadow masks</a>)</span>
     </div>
   </section>
   <section class="panel">
@@ -32,12 +32,24 @@
     <div class="tablewrap"><table id="cov"></table></div>
   </section>
   <section class="panel" id="shadow">
-    <h2>Shadow variants (PandaSet 123)</h2>
-    <p class="hint">Each panel is one mask variant. Red: pixels already in the variant to its left (reading order). Blue: pixels this variant adds over the previous one.</p>
-    <ul class="small" id="shadow_def"></ul>
+    <h2>Shadow masks (background training)</h2>
+    <p class="hint">The background is trained with the vehicle mask, a 10 px ring around it and the shadow of every vehicle we model. Shadows of anything else (parked cars, poles, hedges) stay in the background, since they are static and the background can learn them.</p>
+    <ol class="small">
+      <li><b>Detect</b> dark road next to each modelled vehicle: darker than the same ground point in other frames (temporal), or darker than the bright road nearby in the same frame, checked against the road plane.</li>
+      <li><b>Not on other vehicles</b>: drop shadow pixels on vehicles we do not model (Grounded-SAM2 "car. truck. bus." detections that do not overlap our masks), then keep only shadow pieces still connected to their own vehicle.</li>
+      <li><b>Must move with its vehicle</b>: put each shadow pixel on the road plane and look at that ground point in the other frames where its vehicle is not around. If it is still dark in most of them, the shadow belongs to something static and is dropped.</li>
+    </ol>
+    <div class="legend big">
+      <span><i class="dot" style="background:#e62828"></i>Vehicle mask</span>
+      <span><i class="dot" style="background:#ffd200"></i>10 px ring</span>
+      <span><i class="dot" style="background:#00c8ff"></i>Shadow kept</span>
+      <span><i class="dot" style="background:#e600e6"></i>Shadow rejected (steps 2–3)</span>
+      <span><i class="dot" style="background:#ff8c00"></i>Outline: vehicle we do not model</span>
+    </div>
+    <p class="hint">Mean share of image pixels over all frames. Rejected = share of the detected shadow pixels. Click a scene to jump to its video.</p>
+    <p class="small"><b>Known issues:</b> Waymo 1738: next to the double lane line, the asphalt between the white lines is detected as shadow of the pickup, while the pickup's real shadow on its left is missed (step 1, detection). Waymo 6324: long pole shadows touching the queue of cars stopped at the railway crossing are kept, because those cars never move away. TruckScenes bd14: thin dark strips along the guardrail are kept under the vehicles on the other carriageway.</p>
     <div class="tablewrap"><table id="shadow_tab"></table></div>
-    <img id="shadow_strip" class="strip" alt="">
-    <video id="shadow_video" controls muted loop playsinline preload="none"></video>
+    <div id="shadow_scenes"></div>
   </section>
   <section id="scenes"></section>
 </main>

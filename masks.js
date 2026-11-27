@@ -38,23 +38,27 @@ async function load() {
 }
 async function loadShadow() {
   const d = await (await fetch("shadow.json?t=" + Date.now())).json();
-  const defs = {
-    vehicle: "Our vehicle masks, exactly what all models receive now.",
-    shadowT: "Vehicle mask dilated 10 px, plus road pixels that are clearly darker than their median over the other frames where no vehicle covers them (temporal shadow), keeping the component that touches the vehicle.",
-    shadowTS: "T plus same-frame shadow: road pixels clearly darker than the local bright road in the same frame, checked against the road plane, touching a vehicle.",
-    shadowTSC: "TS plus dark road regions found in the render of a background trained 10k steps with TS (shadows that got baked into it), touching the vehicle region.",
-  };
-  const ul = document.getElementById("shadow_def");
-  for (const v of d.variants) ul.append(el("li", {}, el("b", {}, v.label + ": "), defs[v.key] || ""));
+  const nm = (s) => s.name.split("_").slice(1).join(" ");
+  const pc = (v, n = 2) => (v == null ? "–" : v.toFixed(n) + "%");
   const t = document.getElementById("shadow_tab");
-  t.append(el("thead", {}, el("tr", {}, el("th", {}, "Variant"), el("th", {}, "Mask, % of pixels"), el("th", {}, "Added over previous, % of pixels"))));
+  t.append(el("thead", {}, el("tr", {}, ...["Scene", "Vehicle", "10 px ring", "Shadow kept", "Rejected: on other vehicles", "Rejected: static"].map((h) => el("th", {}, h)))));
   const tb = el("tbody");
-  for (const v of d.variants) tb.append(el("tr", {}, el("td", {}, v.label), el("td", { class: "num" }, v.px.toFixed(2) + "%"), el("td", { class: "num" }, v.added.toFixed(2) + "%")));
+  const box = document.getElementById("shadow_scenes");
+  for (const s of d.scenes) {
+    const r = el("tr", { class: s.missing ? "" : "scene" }, el("td", {}, nm(s)));
+    if (s.missing) r.append(el("td", { colspan: "5", class: "small" }, "not built yet: background data (point cloud, DA3 depth) missing for this scene"));
+    else {
+      for (const [v, n] of [[s.vehicle, 2], [s.ring, 2], [s.shadow, 2], [s.rejected_unmodelled, 1], [s.rejected_static, 1]]) r.append(el("td", { class: "num" }, pc(v, n)));
+      r.onclick = () => document.getElementById("sh_" + s.id).scrollIntoView({ behavior: "smooth" });
+      box.append(el("div", { id: "sh_" + s.id },
+        el("h3", {}, nm(s)),
+        el("p", { class: "hint" }, `${s.frames} frames. Strip: the three frames with most detected shadow, before (left) and final (right). Press play for all frames at 5 fps.`),
+        el("img", { src: s.strip, class: "strip", loading: "lazy", alt: "" }),
+        el("video", { src: s.video, controls: "", muted: "", loop: "", playsinline: "", preload: "none", poster: s.strip })));
+    }
+    tb.append(r);
+  }
   t.append(tb);
-  document.getElementById("shadow_strip").src = d.strip;
-  const vid = document.getElementById("shadow_video");
-  vid.poster = d.strip;
-  vid.src = d.video;
 }
 load();
 loadShadow();

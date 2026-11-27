@@ -1,31 +1,138 @@
 {
- "scene": "b_pa123",
- "video": "masks/b_pa123_shadow.mp4",
- "strip": "masks/b_pa123_shadow_strip.jpg",
- "variants": [
+ "scenes": [
   {
-   "key": "vehicle",
-   "label": "Vehicle mask (current input)",
-   "px": 8.0,
-   "added": 0.0
+   "id": "b_wy1738",
+   "frames": 50,
+   "video": "masks/b_wy1738_shadowv2.mp4",
+   "strip": "masks/b_wy1738_shadowv2_strip.jpg",
+   "vehicle": 6.76,
+   "ring": 1.61,
+   "shadow": 2.37,
+   "shadow_detected": 2.45,
+   "rejected_unmodelled": 1.2,
+   "rejected_static": 2.0,
+   "name": "01_Waymo_fast_1738"
   },
   {
-   "key": "shadowT",
-   "label": "T: vehicle +10 px + temporal shadow",
-   "px": 10.48,
-   "added": 2.48
+   "id": "b_wy1331",
+   "frames": 50,
+   "video": "masks/b_wy1331_shadowv2.mp4",
+   "strip": "masks/b_wy1331_shadowv2_strip.jpg",
+   "vehicle": 5.19,
+   "ring": 1.22,
+   "shadow": 0.79,
+   "shadow_detected": 0.79,
+   "rejected_unmodelled": 0.0,
+   "rejected_static": 0.0,
+   "name": "02_Waymo_fast_1331"
   },
   {
-   "key": "shadowTS",
-   "label": "TS: T + same-frame shadow",
-   "px": 10.77,
-   "added": 0.32
+   "id": "b_wy6324",
+   "frames": 50,
+   "video": "masks/b_wy6324_shadowv2.mp4",
+   "strip": "masks/b_wy6324_shadowv2_strip.jpg",
+   "vehicle": 3.59,
+   "ring": 1.09,
+   "shadow": 0.37,
+   "shadow_detected": 1.11,
+   "rejected_unmodelled": 18.4,
+   "rejected_static": 48.1,
+   "name": "03_Waymo_slow_6324"
   },
   {
-   "key": "shadowTSC",
-   "label": "TSC: TS + shadows baked in a 10k background",
-   "px": 10.98,
-   "added": 0.2
+   "id": "b_wy1357",
+   "name": "04_Waymo_slow_1357",
+   "missing": true
+  },
+  {
+   "id": "b_tsf644",
+   "name": "05_TruckScenes_fast_f644",
+   "missing": true
+  },
+  {
+   "id": "b_tsbd14",
+   "frames": 50,
+   "video": "masks/b_tsbd14_shadowv2.mp4",
+   "strip": "masks/b_tsbd14_shadowv2_strip.jpg",
+   "vehicle": 1.21,
+   "ring": 0.67,
+   "shadow": 0.03,
+   "shadow_detected": 0.08,
+   "rejected_unmodelled": 15.1,
+   "rejected_static": 46.4,
+   "name": "06_TruckScenes_fast_bd14"
+  },
+  {
+   "id": "b_ts3f54",
+   "frames": 50,
+   "video": "masks/b_ts3f54_shadowv2.mp4",
+   "strip": "masks/b_ts3f54_shadowv2_strip.jpg",
+   "vehicle": 6.6,
+   "ring": 1.36,
+   "shadow": 0.22,
+   "shadow_detected": 0.24,
+   "rejected_unmodelled": 1.4,
+   "rejected_static": 8.3,
+   "name": "07_TruckScenes_slow_3f54"
+  },
+  {
+   "id": "b_tsea5f",
+   "name": "08_TruckScenes_slow_ea5f",
+   "missing": true
+  },
+  {
+   "id": "b_nu0286",
+   "frames": 57,
+   "video": "masks/b_nu0286_shadowv2.mp4",
+   "strip": "masks/b_nu0286_shadowv2_strip.jpg",
+   "vehicle": 27.82,
+   "ring": 3.23,
+   "shadow": 0.44,
+   "shadow_detected": 0.5,
+   "rejected_unmodelled": 6.6,
+   "rejected_static": 6.0,
+   "name": "09_nuScenes_slow_0286"
+  },
+  {
+   "id": "b_nu0792",
+   "name": "10_nuScenes_slow_0792",
+   "missing": true
+  },
+  {
+   "id": "b_ki0004",
+   "frames": 50,
+   "video": "masks/b_ki0004_shadowv2.mp4",
+   "strip": "masks/b_ki0004_shadowv2_strip.jpg",
+   "vehicle": 5.64,
+   "ring": 3.18,
+   "shadow": 0.36,
+   "shadow_detected": 0.46,
+   "rejected_unmodelled": 0.0,
+   "rejected_static": 21.2,
+   "name": "11_KITTI_slow_0004"
+  },
+  {
+   "id": "b_ki0020",
+   "name": "12_KITTI_slow_0020",
+   "missing": true
+  },
+  {
+   "id": "b_pa123",
+   "frames": 80,
+   "video": "masks/b_pa123_shadowv2.mp4",
+   "strip": "masks/b_pa123_shadowv2_strip.jpg",
+   "vehicle": 8.0,
+   "ring": 1.83,
+   "shadow": 0.73,
+   "shadow_detected": 0.94,
+   "rejected_unmodelled": 13.0,
+   "rejected_static": 9.9,
+   "name": "13_PandaSet_slow_123"
+  },
+  {
+   "id": "b_pa102",
+   "name": "14_PandaSet_slow_102",
+   "missing": true
   }
  ]
 }
