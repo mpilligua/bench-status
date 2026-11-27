@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Vehicle Gallery</title>
+<link rel="stylesheet" href="style.css">
+<style>
+.gg{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(300px,100%),1fr));gap:6px;margin-top:8px}
+.gg figure{margin:0}
+.gg img{width:100%;height:auto;display:block;border-radius:3px;background:#1b1b1b}
+.gg figcaption{font-size:11px;line-height:1.35;margin:2px 0 0;color:var(--muted)}
+.gg figcaption b{color:var(--text,inherit);font-weight:600}
+.tag{display:inline-block;padding:0 5px;border-radius:3px;border:1px solid var(--line);font-size:10px;margin-left:4px}
+select{font:inherit;padding:4px 6px}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <h1>Vehicle gallery</h1>
+    <p class="sub"><a href="index.html">← Benchmark status</a> · <a href="objects.html">3D viewer</a> · <a href="initvsgt.html">Init vs GT videos</a> · <a href="trajectories.html">Trajectories</a> · every vehicle: the photo where it is largest | its initialisation point cloud seen from the same camera</p>
+  </div>
+</header>
+<main class="wrap">
+  <section class="panel">
+    <p class="hint">Left: the training frame where the vehicle is largest (fully inside the image when possible), mask in green. Right: its 3D cloud from the new initialisation, placed with the initialisation pose of that frame and projected with that frame's camera, same crop and mask outline. Points outside the outline come from other frames that do not line up. Click a card to open it full size.</p>
+    <label>Scene <select id="scene"><option value="">All scenes</option></select></label>
+    <label style="margin-left:12px">Initialised from <select id="src"><option value="">any</option><option>RANSAC</option><option>depth</option></select></label>
+    <span class="small" id="count" style="margin-left:12px"></span>
+    <div class="gg" id="gg"></div>
+  </section>
+</main>
+<script>
+const el = (t, a = {}, ...kids) => { const e = document.createElement(t); for (const [k, v] of Object.entries(a)) k === "class" ? (e.className = v) : e.setAttribute(k, v); for (const k of kids) if (k != null) e.append(k); return e; };
+(async () => {
+  const d = await (await fetch("objgal.json?t=" + Date.now())).json();
+  const ss = document.getElementById("scene"), sr = document.getElementById("src"), gg = document.getElementById("gg");
+  for (const [id, name] of [...new Map(d.map((c) => [c.scene, c.name]))]) ss.append(el("option", { value: id }, name));
+  const fmt = (v) => (v ? v.map((x) => x.toFixed(1)).join("×") : "–");
+  function draw() {
+    gg.innerHTML = ""; let n = 0;
+    for (const c of d) {
+      if ((ss.value && c.scene !== ss.value) || (sr.value && c.source !== sr.value)) continue; n++;
+      gg.append(el("figure", {}, el("a", { href: c.img, target: "_blank" }, el("img", { src: c.img, loading: "lazy", alt: `${c.name} vehicle ${c.id}` })),
+        el("figcaption", {}, el("b", {}, `${c.name} · #${c.id}`), el("span", { class: "tag" }, c.source), ` cloud ${fmt(c.extent)} m · GT ${fmt(c.gt)} m`)));
+    }
+    document.getElementById("count").textContent = `${n} vehicles`;
+  }
+  ss.onchange = draw; sr.onchange = draw; draw();
+})();
+</script>
+</body>
+</html>
