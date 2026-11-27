@@ -171,8 +171,16 @@
   },
   {
    "id": "b_pa102",
-   "name": "14_PandaSet_slow_102",
-   "missing": true
+   "frames": 80,
+   "video": "masks/b_pa102_shadowv2.mp4",
+   "strip": "masks/b_pa102_shadowv2_strip.jpg",
+   "vehicle": 6.69,
+   "ring": 1.53,
+   "shadow": 0.71,
+   "shadow_detected": 0.91,
+   "rejected_unmodelled": 7.3,
+   "rejected_static": 14.4,
+   "name": "14_PandaSet_slow_102"
   }
  ]
 }
