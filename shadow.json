@@ -46,8 +46,16 @@
   },
   {
    "id": "b_tsf644",
-   "name": "05_TruckScenes_fast_f644",
-   "missing": true
+   "frames": 50,
+   "video": "masks/b_tsf644_shadowv2.mp4",
+   "strip": "masks/b_tsf644_shadowv2_strip.jpg",
+   "vehicle": 6.75,
+   "ring": 1.19,
+   "shadow": 0.55,
+   "shadow_detected": 0.59,
+   "rejected_unmodelled": 0.1,
+   "rejected_static": 6.2,
+   "name": "05_TruckScenes_fast_f644"
   },
   {
    "id": "b_tsbd14",
