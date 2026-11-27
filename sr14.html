@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Super-resolution Test</title>
+<link rel="stylesheet" href="style.css">
+<style>td.num,th.num{text-align:right;font-variant-numeric:tabular-nums} .im{width:100%;height:auto;display:block;border-radius:6px;margin:6px 0} .btn{display:inline-block;padding:6px 12px;border:1px solid var(--line);border-radius:6px;text-decoration:none}</style>
+</head>
+<body>
+<header><div class="wrap"><h1>Super-resolution before matching: PandaSet 123, vehicle 14</h1>
+<p class="sub"><a href="index.html">← Benchmark status</a> · <a href="live.html">Live trajectory</a> · a far vehicle (55-160 m, at most 70 px); test frames only (4, 12, 16, …, 76)</p></div></header>
+<main class="wrap">
+<section class="panel"><h2>Setup</h2>
+<p class="hint">A fixed 192×192 px window follows the vehicle in every frame where it is visible; it is upsampled x4 to 768×768 by each method; RoMa v2 (800 px, one direction, no high-res refinement) matches pairs of test frames 4, 8 and 12 frames apart (48 pairs). Matches are scored against the correspondence given by the GT 3D box (pixel ray hits the box in frame A, the point moves with the box to frame B). Clouds and trajectories use the same back-end for every input: DA3 depth of the test frames rescaled per frame to a smoothed distance (DA3 + ground contact), vehicle limited to ±2.5 m in depth, 4-DoF RANSAC per pair, joint pose graph.</p>
+<h3>Run time (75 frames, A100)</h3><div class="tablewrap"><table><thead><tr><th>Method</th><th class=num>Total</th><th class=num>Per frame</th><th class=num>Peak GPU memory</th></tr></thead><tbody><tr><td>Bicubic x4</td><td class=num>0.06 s</td><td class=num>0.8 ms</td><td class=num>–</td></tr><tr><td>IART x4</td><td class=num>80 s</td><td class=num>1.07 s</td><td class=num>8.5 GB</td></tr><tr><td>RealViformer x4</td><td class=num>2.2 s</td><td class=num>30 ms</td><td class=num>2.5 GB</td></tr></tbody></table></div>
+<img class="im" src="sr14/sr_zoom.jpg" alt="zoom on the vehicle with each method"><p class="hint">Test frames 12 / 40 / 72: original pixels | bicubic | IART | RealViformer.</p></section>
+<section class="panel"><h2>Matches before vs after super-resolution</h2>
+<div class="tablewrap"><table><thead><tr><th>RoMa v2 input</th><th class=num>Gap 4: &lt;3 px / median px</th><th class=num>Gap 8</th><th class=num>Gap 12</th><th class=num>All 48 pairs</th></tr></thead><tbody><tr><td>Original crops</td><td class=num>90% / 1.2</td><td class=num>77% / 1.4</td><td class=num>60% / 2.3</td><td class=num>76% / 1.5</td></tr><tr><td>Bicubic x4</td><td class=num>90% / 1.2</td><td class=num>77% / 1.4</td><td class=num>60% / 2.2</td><td class=num>76% / 1.5</td></tr><tr><td>IART x4</td><td class=num>89% / 1.2</td><td class=num>66% / 2.2</td><td class=num>51% / 2.9</td><td class=num>69% / 1.8</td></tr><tr><td>RealViformer x4</td><td class=num>96% / 1.1</td><td class=num>91% / 1.0</td><td class=num>85% / 1.4</td><td class=num>91% / 1.2</td></tr></tbody></table></div>
+<p class="hint">Green: within 3 px of the GT-box correspondence, yellow: within 8 px, red: worse. Each panel: frame A | frame B (original images), 30 sampled matches.</p>
+<img class="im" src="sr14/matches_12_16.jpg" alt="matches f12 to f16"><img class="im" src="sr14/matches_40_48.jpg" alt="matches f40 to f48"><img class="im" src="sr14/matches_56_68.jpg" alt="matches f56 to f68"></section>
+<section class="panel"><h2>Point clouds and trajectories</h2>
+<div class="tablewrap"><table><thead><tr><th>Matches from</th><th class=num>Frames registered</th><th class=num>Points inside GT box</th><th class=num>Cloud extent l × w × h (m), GT 4.45 × 1.85 × 1.69</th><th class=num>Position error vs GT median / max (m)</th></tr></thead><tbody><tr><td>Original crops</td><td class=num>18/18</td><td class=num>60%</td><td class=num>6.15 × 1.28 × 1.28</td><td class=num>4.93 / 15.98</td></tr><tr><td>Bicubic x4</td><td class=num>18/18</td><td class=num>53%</td><td class=num>12.29 × 6.36 × 1.28</td><td class=num>3.62 / 33.04</td></tr><tr><td>IART x4</td><td class=num>18/18</td><td class=num>52%</td><td class=num>10.25 × 3.1 × 1.27</td><td class=num>4.43 / 104.66</td></tr><tr><td>RealViformer x4</td><td class=num>18/18</td><td class=num>53%</td><td class=num>5.74 × 1.52 × 1.28</td><td class=num>5.75 / 16.02</td></tr></tbody></table></div>
+<p><a class="btn" href="live.html?d=b_pa123_14_sr">Open the clouds in the 3D viewer with the video →</a></p></section>
+</main></body></html>
