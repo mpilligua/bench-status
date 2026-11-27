@@ -113,8 +113,16 @@
   },
   {
    "id": "b_ki0020",
-   "name": "12_KITTI_slow_0020",
-   "missing": true
+   "frames": 50,
+   "video": "masks/b_ki0020_shadowv2.mp4",
+   "strip": "masks/b_ki0020_shadowv2_strip.jpg",
+   "vehicle": 11.61,
+   "ring": 3.24,
+   "shadow": 1.33,
+   "shadow_detected": 1.44,
+   "rejected_unmodelled": 7.2,
+   "rejected_static": 0.0,
+   "name": "12_KITTI_slow_0020"
   },
   {
    "id": "b_pa123",
