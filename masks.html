@@ -6,52 +6,29 @@
 <meta name="robots" content="noindex, nofollow">
 <title>Training Masks</title>
 <link rel="stylesheet" href="style.css">
+<style>
+.gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(620px,100%),1fr));gap:16px;margin-top:12px}
+.gallery figure{margin:0}
+.gallery video{width:100%;height:auto;display:block;border-radius:6px;background:#000}
+.gallery figcaption{font-weight:600;margin:6px 0 0}
+</style>
 </head>
 <body>
 <header>
   <div class="wrap">
     <h1>Training masks</h1>
-    <p class="sub"><a href="index.html">← Benchmark status</a> · masks given to the models for background-only training</p>
+    <p class="sub"><a href="index.html">← Benchmark status</a> · original vs vehicle and shadow masks, all 14 scenes</p>
   </div>
 </header>
 <main class="wrap">
-  <section class="panel">
-    <h2>What is shown</h2>
-    <p class="hint">Pixels inside the mask are excluded from the photometric loss when training the static background.</p>
-    <div class="legend big">
-      <span><i class="dot" style="background:#e62828"></i>Vehicle mask, the current input to all models</span>
-      <span><i class="dot" style="background:#ffd200"></i>Extra pixels if the mask is dilated <b id="dil"></b> px</span>
-      <span><i class="dot" style="background:#00c8ff"></i>Shadow of a modelled vehicle (<a href="#shadow">see the shadow masks</a>)</span>
-    </div>
-  </section>
-  <section class="panel">
-    <div class="bar">
-      <h2>Mask coverage per scene</h2>
-    </div>
-    <p class="hint">Mean share of image pixels inside the mask over all frames. Click a scene to see the video.</p>
-    <div class="tablewrap"><table id="cov"></table></div>
-  </section>
   <section class="panel" id="shadow">
-    <h2>Shadow masks (background training)</h2>
-    <p class="hint">The background is trained with the vehicle mask, a 10 px ring around it and the shadow of every vehicle we model. Shadows of anything else (parked cars, poles, hedges) stay in the background, since they are static and the background can learn them.</p>
-    <ol class="small">
-      <li><b>Detect</b> dark road next to each modelled vehicle: darker than the same ground point in other frames (temporal), or darker than the bright road nearby in the same frame, checked against the road plane.</li>
-      <li><b>Not on other vehicles</b>: drop shadow pixels on vehicles we do not model (Grounded-SAM2 "car. truck. bus." detections that do not overlap our masks), then keep only shadow pieces still connected to their own vehicle.</li>
-      <li><b>Must move with its vehicle</b>: put each shadow pixel on the road plane and look at that ground point in the other frames where its vehicle is not around. If it is still dark in most of them, the shadow belongs to something static and is dropped.</li>
-    </ol>
+    <h2>Vehicle and shadow masks</h2>
     <div class="legend big">
-      <span><i class="dot" style="background:#e62828"></i>Vehicle mask</span>
-      <span><i class="dot" style="background:#ffd200"></i>10 px ring</span>
-      <span><i class="dot" style="background:#00c8ff"></i>Shadow kept</span>
-      <span><i class="dot" style="background:#e600e6"></i>Shadow rejected (steps 2–3)</span>
-      <span><i class="dot" style="background:#ff8c00"></i>Outline: vehicle we do not model</span>
+      <span><i class="dot" style="background:#e62828"></i>Vehicle mask (+10 px)</span>
+      <span><i class="dot" style="background:#00c8ff"></i>Shadow of a modelled vehicle</span>
     </div>
-    <p class="hint">Mean share of image pixels over all frames. Rejected = share of the detected shadow pixels. Click a scene to jump to its video.</p>
-    <p class="small"><b>Known issues:</b> Waymo 1738: next to the double lane line, the asphalt between the white lines is detected as shadow of the pickup, while the pickup's real shadow on its left is missed (step 1, detection). Waymo 6324: long pole shadows touching the queue of cars stopped at the railway crossing are kept, because those cars never move away. TruckScenes bd14: thin dark strips along the guardrail are kept under the vehicles on the other carriageway.</p>
-    <div class="tablewrap"><table id="shadow_tab"></table></div>
-    <div id="shadow_scenes"></div>
+    <div class="gallery" id="gallery"></div>
   </section>
-  <section id="scenes"></section>
 </main>
 <script src="masks.js"></script>
 </body>
