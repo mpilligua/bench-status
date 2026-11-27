@@ -21,7 +21,7 @@
     <div class="legend big">
       <span><i class="dot" style="background:#e62828"></i>Vehicle mask, the current input to all models</span>
       <span><i class="dot" style="background:#ffd200"></i>Extra pixels if the mask is dilated <b id="dil"></b> px</span>
-      <span><i class="dot" style="background:#00c8ff"></i>Extra shadow pixels (only built for PandaSet 123)</span>
+      <span><i class="dot" style="background:#00c8ff"></i>Extra shadow pixels (only built for PandaSet 123, <a href="#shadow">see the shadow variants</a>)</span>
     </div>
   </section>
   <section class="panel">
@@ -30,6 +30,14 @@
     </div>
     <p class="hint">Mean share of image pixels inside the mask over all frames. Click a scene to see the video.</p>
     <div class="tablewrap"><table id="cov"></table></div>
+  </section>
+  <section class="panel" id="shadow">
+    <h2>Shadow variants (PandaSet 123)</h2>
+    <p class="hint">Each panel is one mask variant. Red: pixels already in the variant to its left (reading order). Blue: pixels this variant adds over the previous one.</p>
+    <ul class="small" id="shadow_def"></ul>
+    <div class="tablewrap"><table id="shadow_tab"></table></div>
+    <img id="shadow_strip" class="strip" alt="">
+    <video id="shadow_video" controls muted loop playsinline preload="none"></video>
   </section>
   <section id="scenes"></section>
 </main>

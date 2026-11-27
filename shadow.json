@@ -1,0 +1,31 @@
+{
+ "scene": "b_pa123",
+ "video": "masks/b_pa123_shadow.mp4",
+ "strip": "masks/b_pa123_shadow_strip.jpg",
+ "variants": [
+  {
+   "key": "vehicle",
+   "label": "Vehicle mask (current input)",
+   "px": 8.0,
+   "added": 0.0
+  },
+  {
+   "key": "shadowT",
+   "label": "T: vehicle +10 px + temporal shadow",
+   "px": 10.48,
+   "added": 2.48
+  },
+  {
+   "key": "shadowTS",
+   "label": "TS: T + same-frame shadow",
+   "px": 10.77,
+   "added": 0.32
+  },
+  {
+   "key": "shadowTSC",
+   "label": "TSC: TS + shadows baked in a 10k background",
+   "px": 10.98,
+   "added": 0.2
+  }
+ ]
+}

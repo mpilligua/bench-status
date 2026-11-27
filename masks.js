@@ -36,4 +36,25 @@ async function load() {
       vid, lst));
   }
 }
+async function loadShadow() {
+  const d = await (await fetch("shadow.json?t=" + Date.now())).json();
+  const defs = {
+    vehicle: "Our vehicle masks, exactly what all models receive now.",
+    shadowT: "Vehicle mask dilated 10 px, plus road pixels that are clearly darker than their median over the other frames where no vehicle covers them (temporal shadow), keeping the component that touches the vehicle.",
+    shadowTS: "T plus same-frame shadow: road pixels clearly darker than the local bright road in the same frame, checked against the road plane, touching a vehicle.",
+    shadowTSC: "TS plus dark road regions found in the render of a background trained 10k steps with TS (shadows that got baked into it), touching the vehicle region.",
+  };
+  const ul = document.getElementById("shadow_def");
+  for (const v of d.variants) ul.append(el("li", {}, el("b", {}, v.label + ": "), defs[v.key] || ""));
+  const t = document.getElementById("shadow_tab");
+  t.append(el("thead", {}, el("tr", {}, el("th", {}, "Variant"), el("th", {}, "Mask, % of pixels"), el("th", {}, "Added over previous, % of pixels"))));
+  const tb = el("tbody");
+  for (const v of d.variants) tb.append(el("tr", {}, el("td", {}, v.label), el("td", { class: "num" }, v.px.toFixed(2) + "%"), el("td", { class: "num" }, v.added.toFixed(2) + "%")));
+  t.append(tb);
+  document.getElementById("shadow_strip").src = d.strip;
+  const vid = document.getElementById("shadow_video");
+  vid.poster = d.strip;
+  vid.src = d.video;
+}
 load();
+loadShadow();

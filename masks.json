@@ -274,19 +274,19 @@
     },
     {
      "key": "shadowT",
-     "label": "+ temporal shadow",
+     "label": "dilated 10 px + temporal shadow",
      "px": 10.48,
      "px_max": 19.29
     },
     {
      "key": "shadowTS",
-     "label": "+ temporal + same-frame shadow",
+     "label": "dilated 10 px + temporal + same-frame shadow",
      "px": 10.77,
      "px_max": 19.56
     },
     {
      "key": "shadowTSC",
-     "label": "+ temporal + same-frame shadow, closed",
+     "label": "dilated 10 px + temporal + same-frame + baked-in-background shadow",
      "px": 10.98,
      "px_max": 19.56
     }
