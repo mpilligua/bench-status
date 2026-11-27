@@ -85,8 +85,16 @@
   },
   {
    "id": "b_tsea5f",
-   "name": "08_TruckScenes_slow_ea5f",
-   "missing": true
+   "frames": 50,
+   "video": "masks/b_tsea5f_shadowv2.mp4",
+   "strip": "masks/b_tsea5f_shadowv2_strip.jpg",
+   "vehicle": 2.86,
+   "ring": 1.08,
+   "shadow": 0.12,
+   "shadow_detected": 0.18,
+   "rejected_unmodelled": 21.9,
+   "rejected_static": 8.2,
+   "name": "08_TruckScenes_slow_ea5f"
   },
   {
    "id": "b_nu0286",
